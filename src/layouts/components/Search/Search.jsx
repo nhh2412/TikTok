@@ -13,7 +13,7 @@ const cx = classNames.bind(styles)
 function Search() {
     const [, setSearchResult] = useState([])
     const [searchValue, setSearchValue] = useState('')
-    const [showResult, setShowResult] = useState(true)
+    const [showResult, setShowResult] = useState(false)
 
     const inputRef = useRef()
 
@@ -25,6 +25,17 @@ function Search() {
 
     const handleHideResult = () => {
         setShowResult(false)
+    }
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue)
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
     }
 
     return (
@@ -50,9 +61,7 @@ function Search() {
                         type="text"
                         placeholder="Tìm kiếm tài khoản và video"
                         value={searchValue}
-                        onChange={(e) => {
-                            setSearchValue(e.target.value)
-                        }}
+                        onChange={handleChange}
                         onFocus={() => setShowResult(true)}
                     />
                     {!!searchValue && (
@@ -60,7 +69,13 @@ function Search() {
                             <icons.close />
                         </span>
                     )}
-                    <button className={cx('search-btn')}>
+                    <button
+                        className={cx('search-btn')}
+                        onMouseDown={(e) => {
+                            e.preventDefault()
+                        }}
+                        onClick={handleSubmit}
+                    >
                         <icons.search className={cx('icon-search')} />
                     </button>
                 </div>
