@@ -5,6 +5,8 @@ const routes = {
     search: '/search',
     profile: '/@:nickname',
     feedback: '/feedback',
+    live: '/live',
+    vi: '/vi-VN',
 }
 
 export default routes

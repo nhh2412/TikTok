@@ -1,5 +1,6 @@
 const icons = {
     // header
+
     // search
     search: require('~/assets/icons/header/search/search.js').default,
     close: require('~/assets/icons/header/search/close.js').default,
@@ -17,9 +18,14 @@ const icons = {
     arrowLeft: require('~/assets/icons/header/menu/arrowLeft.js').default,
     user: require('~/assets/icons/header/menu/user.js').default,
     tiktok: require('~/assets/icons/header/menu/tiktok.js').default,
-    camera: require('~/assets/icons/header/menu/camera.js').default,
     setting: require('~/assets/icons/header/menu/setting.js').default,
     signOut: require('~/assets/icons/header/menu/signOut.js').default,
+
+    // sidebar
+    // regular
+    camera: require('~/assets/icons/sidebar/camera.js'),
+    home: require('~/assets/icons/sidebar/home.js'),
+    userGroup: require('~/assets/icons/sidebar/userGroup.js'),
 }
 
 export default icons
