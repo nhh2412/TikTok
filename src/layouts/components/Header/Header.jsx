@@ -212,7 +212,9 @@ function Header() {
                         <>
                             <button className={cx('upload')}>
                                 <Link to={config.routes.upload}>
-                                    <icons.plus className={cx('icon-plus')} />
+                                    <div className={cx('icon-plus')}>
+                                        <icons.plus />
+                                    </div>
                                     <p>Tải lên</p>
                                 </Link>
                             </button>
@@ -234,7 +236,9 @@ function Header() {
                         <>
                             <button className={cx('upload')}>
                                 <Link to={config.routes.upload}>
-                                    <icons.plus className={cx('icon-plus')} />
+                                    <div className={cx('icon-plus')}>
+                                        <icons.plus />
+                                    </div>
                                     <p>Tải lên</p>
                                 </Link>
                             </button>

@@ -51,6 +51,17 @@
 
     .input-icons {
         margin-left: 10px;
+        display: flex;
+    }
+
+    .loading {
+        animation: spinner linear 1s infinite;
+    }
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
     }
 }
 

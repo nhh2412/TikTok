@@ -50,6 +50,7 @@
     }
 
     .icon-plus {
+        display: flex;
         margin-right: 8px;
         height: 20px;
     }
@@ -78,6 +79,7 @@
 
 .mailbox-icon,
 .message-icon {
+    display: flex;
     margin-left: 20px;
     cursor: pointer;
 }
