@@ -31,24 +31,18 @@
     background: #fff;
     border: 1px solid rgba(22, 24, 35, 0.12);
     border-radius: 2px;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 16px;
+    display: flex;
+    height: 36px;
+    font-weight: 600;
+    font-size: 16px;
+    color: rgba(22, 24, 35, 1);
 
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
-    a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        padding: 0 16px;
-        height: 36px;
-    }
-
-    p {
-        font-weight: 600;
-        font-size: 16px;
-        color: rgba(22, 24, 35, 1);
-    }
-
     .icon-plus {
         display: flex;
         margin-right: 8px;

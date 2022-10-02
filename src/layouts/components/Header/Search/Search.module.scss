@@ -1,3 +1,13 @@
+.wrapper {
+    width: 100%;
+    padding-top: 8px;
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    border-radius: 8px;
+    max-height: min((100vh - 78px) - 60px, 734px);
+    overflow: hidden auto;
+}
+
 .search-form {
     position: relative;
     padding: 12px 16px;

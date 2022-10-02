@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind'
 import styles from './Header.module.scss'
 import { Link } from 'react-router-dom'
-import Tippy from '@tippyjs/react'
+import Tippy from '@tippyjs/react/headless'
 import 'tippy.js/dist/tippy.css'
 
-import Menu from '~/components/Popper/Menu'
-import Search from '../Search'
+import Menu from '~/layouts/components/Header/Menu'
+import Search from './Search'
 import config from '~/config'
 
 import images from '~/assets/images'
@@ -171,33 +171,34 @@ const MENU_ITEMS = [
     },
 ]
 
-const currentUser = true
+let currentUser
+
+const userMenu = [
+    {
+        icon: <icons.user />,
+        title: 'Xem hồ sơ',
+        to: config.routes.profileUser,
+    },
+    {
+        icon: <icons.tiktok />,
+        title: 'Nhận xu',
+        to: config.routes.coin,
+    },
+    {
+        icon: <icons.setting />,
+        title: 'Cài đặt',
+        to: config.routes.setting,
+    },
+    ...MENU_ITEMS,
+    {
+        icon: <icons.signOut />,
+        title: 'Đăng xuất',
+        to: config.routes.logout,
+        separate: true,
+    },
+]
 
 function Header() {
-    const userMenu = [
-        {
-            icon: <icons.user />,
-            title: 'Xem hồ sơ',
-            to: config.routes.profileUser,
-        },
-        {
-            icon: <icons.tiktok />,
-            title: 'Nhận xu',
-            to: config.routes.coin,
-        },
-        {
-            icon: <icons.setting />,
-            title: 'Cài đặt',
-            to: config.routes.setting,
-        },
-        ...MENU_ITEMS,
-        {
-            icon: <icons.signOut />,
-            title: 'Đăng xuất',
-            to: config.routes.logout,
-            separate: true,
-        },
-    ]
     return (
         <header className={cx('header')}>
             <div className={cx('wrapper')}>
@@ -210,14 +211,14 @@ function Header() {
                 <div className={cx('act')}>
                     {currentUser ? (
                         <>
-                            <button className={cx('upload')}>
-                                <Link to={config.routes.upload}>
+                            <Link to={config.routes.upload}>
+                                <button className={cx('upload')}>
                                     <div className={cx('icon-plus')}>
                                         <icons.plus />
                                     </div>
-                                    <p>Tải lên</p>
-                                </Link>
-                            </button>
+                                    <span>Tải lên</span>
+                                </button>
+                            </Link>
                             <Tippy content="Tin nhắn" placement="bottom">
                                 <span className={cx('message-icon')}>
                                     <icons.message />
@@ -235,15 +236,13 @@ function Header() {
                     ) : (
                         <>
                             <button className={cx('upload')}>
-                                <Link to={config.routes.upload}>
-                                    <div className={cx('icon-plus')}>
-                                        <icons.plus />
-                                    </div>
-                                    <p>Tải lên</p>
-                                </Link>
+                                <div className={cx('icon-plus')}>
+                                    <icons.plus />
+                                </div>
+                                <span>Tải lên</span>
                             </button>
                             <button className={cx('login')}>
-                                <p>Đăng nhập</p>
+                                <span>Đăng nhập</span>
                             </button>
                             <Menu items={MENU_ITEMS}>
                                 <icons.more className={cx('icon-more')} />

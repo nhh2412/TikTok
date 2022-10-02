@@ -3,9 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from './Search.module.scss'
 
-import { Wrapper as PopperWrapper } from '~/components/Popper'
-import AccountItem from '~/components/AccountItem'
-import * as searchServices from '~/services/searchServices'
+import AccountItem from '~/layouts/components/Header/Search/AccountItem'
 
 import icons from '~/assets/icons'
 import { useDebounce } from '~/hooks'
@@ -28,13 +26,17 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true)
 
-            const result = await searchServices.search(debounced)
+            const response = await fetch(
+                `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`,
+            )
+            const result = await response.json()
 
-            setSearchResult(result)
+            setSearchResult(result.data)
             setLoading(false)
         }
 
         fetchApi()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debounced])
 
     const handleClear = () => {
@@ -65,12 +67,12 @@ function Search() {
             visible={showResult && searchValue && searchResult.length > 0}
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
+                    <div className={cx('wrapper')}>
                         <div className={cx('account-title')}>Tài khoản</div>
                         {searchResult.map((data) => (
                             <AccountItem data={data} key={data.id} />
                         ))}
-                    </PopperWrapper>
+                    </div>
                 </div>
             )}
         >

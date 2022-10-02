@@ -18,7 +18,7 @@ a {
 :root {
     --default-layout-width: 1150px;
     --header-layout-height: 60px;
-    --sidebar-layout-width: 340px;
+    --sidebar-layout-width: 356px;
     --primary: rgba(254, 44, 85, 1);
 }
 // custom scrollbar
@@ -33,11 +33,6 @@ html *::-webkit-scrollbar-thumb {
 html *::-webkit-scrollbar-track {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0);
-}
-//
-
-.separate {
-    border-top: 1px solid rgba(22, 24, 35, 0.12);
 }
 
 // custom tippy
@@ -54,4 +49,14 @@ body {
     .tippy-arrow {
         color: rgba(84, 84, 84, 0.92);
     }
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+}
+// custom simple bar
+.simplebar-scrollbar::before {
+    background: rgba(22, 24, 35, 0.08);
+    width: 6px;
 }

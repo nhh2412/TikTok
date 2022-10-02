@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 import classNames from 'classnames/bind'
 import styles from './Menu.module.scss'
 import Tippy from '@tippyjs/react/headless'
@@ -29,11 +27,6 @@ function Menu({ children, items = [] }) {
             )
         })
 
-    Menu.propTypes = {
-        children: PropTypes.node.isRequired,
-        items: PropTypes.array,
-    }
-
     const handleBack = () => {
         setHistory((prev) => prev.slice(0, prev.length - 1))
     }
@@ -59,6 +52,7 @@ function Menu({ children, items = [] }) {
             delay={[0, 700]}
             offset={[12, 8]}
             render={renderResult}
+            arrow={true}
         >
             {children}
         </Tippy>

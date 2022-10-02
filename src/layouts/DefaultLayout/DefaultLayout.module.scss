@@ -1,12 +1,10 @@
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: var(--header-layout-height);
-    height: 2000px;
+    width: 1150px;
 }
 
-.main-container {
-    display: flex;
-    justify-content: space-between;
-    width: var(--default-layout-width);
+.main {
+    height: 2000px;
 }

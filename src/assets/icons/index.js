@@ -22,10 +22,11 @@ const icons = {
     signOut: require('~/assets/icons/header/menu/signOut.js').default,
 
     // sidebar
-    // regular
-    camera: require('~/assets/icons/sidebar/camera.js'),
-    home: require('~/assets/icons/sidebar/home.js'),
-    userGroup: require('~/assets/icons/sidebar/userGroup.js'),
+    camera: require('~/assets/icons/sidebar/menu/camera.js'),
+    home: require('~/assets/icons/sidebar/menu/home.js'),
+    userGroup: require('~/assets/icons/sidebar/menu/userGroup.js'),
+    hashtag: require('~/assets/icons/sidebar/discover/hashtag.js').default,
+    musicNote: require('~/assets/icons/sidebar/discover/musicNote.js').default,
 }
 
 export default icons
