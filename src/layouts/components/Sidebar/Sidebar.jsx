@@ -2,7 +2,7 @@ import classNames from 'classnames/bind'
 import styles from './Sidebar.module.scss'
 import { useEffect, useState } from 'react'
 
-import Tippy from '@tippyjs/react'
+import Tippy from '@tippyjs/react/headless'
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.css'
 
@@ -135,8 +135,13 @@ function Sidebar() {
                     <div className={cx('footer-more')}>
                         <Tippy
                             placement="top-start"
+                            hideOnClick={false}
                             interactive
-                            content={<a href="#.">NGUYÊN TẮC THỰC THI PHÁP LUẬT CỦA TIKTOK</a>}
+                            render={() => (
+                                <div className={cx('more-popup')}>
+                                    <a href="#.">NGUYÊN TẮC THỰC THI PHÁP LUẬT CỦA TIKTOK</a>
+                                </div>
+                            )}
                         >
                             <span>Thêm</span>
                         </Tippy>

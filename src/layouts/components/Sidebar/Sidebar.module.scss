@@ -5,6 +5,7 @@
         height: calc(100vh - 60px);
         position: fixed;
         width: var(--sidebar-layout-width);
+        padding: 8px;
     }
 }
 
@@ -172,4 +173,25 @@
     line-height: 17px;
     margin-bottom: 8px;
     cursor: pointer;
+}
+
+.more-popup {
+    padding: 15px 16px 20px;
+    width: fit-content;
+    max-width: 200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+
+    a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        display: block;
+        color: rgba(22, 24, 35, 1);
+    }
+    a:hover {
+        color: rgb(254, 44, 85);
+    }
 }

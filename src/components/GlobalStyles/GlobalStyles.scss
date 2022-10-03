@@ -37,6 +37,7 @@ html *::-webkit-scrollbar-track {
 
 // custom tippy
 body {
+    overflow-y: overlay;
     .tippy-box {
         border-radius: 8px;
         font-weight: 600;
