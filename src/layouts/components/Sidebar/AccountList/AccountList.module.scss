@@ -1,0 +1,47 @@
+.account-load {
+    padding: 8px;
+    display: flex;
+
+    .avatar-no-img {
+        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+        margin-right: 12px;
+    }
+    .name {
+        height: 12px;
+        background: rgba(22, 24, 35, 0.06);
+        width: 100px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+    .username {
+        height: 12px;
+        border-radius: 4px;
+        width: 66px;
+    }
+}
+
+.account-container {
+    padding: 16px 0;
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 600;
+
+    .title {
+        padding: 0 8px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .show-all {
+        padding: 0 8px;
+        margin-top: 8px;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        user-select: none;
+        line-height: 20px;
+    }
+}

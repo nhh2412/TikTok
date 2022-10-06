@@ -1,0 +1,18 @@
+.discover-load {
+    width: 208px;
+    height: 24px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+}
+
+.discover {
+    padding: 16px 8px 8px;
+    .title {
+        padding-bottom: 16px;
+    }
+
+    .discover-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

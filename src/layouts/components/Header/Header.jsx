@@ -2,7 +2,6 @@ import classNames from 'classnames/bind'
 import styles from './Header.module.scss'
 import { Link } from 'react-router-dom'
 import Tippy from '@tippyjs/react/headless'
-import 'tippy.js/dist/tippy.css'
 
 import Menu from '~/layouts/components/Header/Menu'
 import Search from './Search'
@@ -245,7 +244,9 @@ function Header() {
                                 <span>Đăng nhập</span>
                             </button>
                             <Menu items={MENU_ITEMS}>
-                                <icons.more className={cx('icon-more')} />
+                                <span className={cx('icon-more')}>
+                                    <icons.more />
+                                </span>
                             </Menu>
                         </>
                     )}

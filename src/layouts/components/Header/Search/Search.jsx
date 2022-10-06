@@ -72,6 +72,7 @@ function Search() {
                         {searchResult.map((data) => (
                             <AccountItem data={data} key={data.id} />
                         ))}
+                        <div className={cx('see-all')}>Xem tất cả kết quả dành cho "{searchValue}"</div>
                     </div>
                 </div>
             )}

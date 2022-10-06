@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px 0;
+    position: relative;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.content {
+    margin-left: 12px;
+}
+
+.info {
+    max-width: 510px;
+    .description {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .music {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 4px;
+        margin-bottom: 12px;
+    }
+}
+
+.author {
+    display: flex;
+
+    .author-title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        margin-right: 4px;
+    }
+
+    .author-name {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+    }
+}
+
+.video-wrapper video {
+    height: calc(450px + (100vw - 768px) / 1152 * 100);
+    width: 290px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.follow-btn {
+    position: absolute;
+    top: 28px;
+    right: 0;
+    min-width: 88px;
+    padding: 0 10px;
+    min-height: 28px;
+    font-size: 16px;
+    line-height: 22px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(254, 44, 85, 1);
+    border-color: rgba(254, 44, 85, 1);
+    background-color: rgba(255, 255, 255, 1);
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+    &:active {
+        background-color: rgba(254, 44, 85, 0.16);
+    }
+}

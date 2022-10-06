@@ -4,6 +4,13 @@
     background: #fff;
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
     border-radius: 8px;
+    position: relative;
+
+    .arrow {
+        position: absolute;
+        top: -12px;
+        right: 12px;
+    }
 
     ul {
         padding-bottom: 8px;

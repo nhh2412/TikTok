@@ -1,5 +1,5 @@
 const icons = {
-    // header
+    arrow: require('~/assets/icons/arrow.js').default,
 
     // search
     search: require('~/assets/icons/header/search/search.js').default,

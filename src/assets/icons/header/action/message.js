@@ -1,16 +1,6 @@
-import { forwardRef } from 'react'
-
-function message({ className }, ref) {
+function message() {
     return (
-        <svg
-            className={className}
-            ref={ref}
-            width="26px"
-            height="26px"
-            viewBox="0 0 48 48"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="26px" height="26px" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -20,4 +10,4 @@ function message({ className }, ref) {
     )
 }
 
-export default forwardRef(message)
+export default message

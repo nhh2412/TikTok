@@ -3,6 +3,8 @@ import styles from './Menu.module.scss'
 import Tippy from '@tippyjs/react/headless'
 import { useState } from 'react'
 
+import icons from '~/assets/icons'
+
 import MenuItem from './MenuItem'
 import Header from './Header'
 
@@ -35,6 +37,9 @@ function Menu({ children, items = [] }) {
         <div className={cx('menu')} tabIndex="-1" {...attrs}>
             {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
             <ul>{renderItems()}</ul>
+            <span className={cx('arrow')}>
+                <icons.arrow />
+            </span>
         </div>
     )
 
@@ -52,7 +57,6 @@ function Menu({ children, items = [] }) {
             delay={[0, 700]}
             offset={[12, 8]}
             render={renderResult}
-            arrow={true}
         >
             {children}
         </Tippy>

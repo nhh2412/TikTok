@@ -18,9 +18,11 @@ function AccountItem({ data, index, isShowAll }) {
             </div>
             <div className={cx('info')}>
                 <div className={cx('name')}>
-                    <h4>{`${data.first_name} ${data.last_name}`}</h4> {data.tick && <icons.check />}
+                    <h4>{data.nickname}</h4> {data.tick && <icons.check />}
                 </div>
-                <p className={cx('username')}>{data.nickname}</p>
+                <p className={cx('username')}>
+                    {data.first_name} {data.last_name}
+                </p>
             </div>
         </a>
     )

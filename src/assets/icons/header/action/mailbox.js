@@ -1,16 +1,6 @@
-import { forwardRef } from 'react'
-
-function mailbox({ className }, ref) {
+function mailbox() {
     return (
-        <svg
-            className={className}
-            ref={ref}
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -20,4 +10,4 @@ function mailbox({ className }, ref) {
     )
 }
 
-export default forwardRef(mailbox)
+export default mailbox
