@@ -1,9 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { publicRoutes } from '~/routes'
 import DefaultLayout from '~/layouts'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
+import ModalLogin from './components/ModalLogin'
 
 function App() {
+    const [isShowModalLogin, setIsShowModalLogin] = useState(false)
+
     return (
         <div className="app">
             <Router>
@@ -21,9 +24,15 @@ function App() {
                                 key={index}
                                 path={route.path}
                                 element={
-                                    <Layout>
-                                        <Page />
-                                    </Layout>
+                                    <>
+                                        <Layout setIsShowModalLogin={setIsShowModalLogin}>
+                                            <Page setIsShowModalLogin={setIsShowModalLogin} />
+                                        </Layout>
+                                        <ModalLogin
+                                            isShowModalLogin={isShowModalLogin}
+                                            setIsShowModalLogin={setIsShowModalLogin}
+                                        />
+                                    </>
                                 }
                             />
                         )

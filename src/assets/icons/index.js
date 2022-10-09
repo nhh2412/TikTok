@@ -1,11 +1,23 @@
 const icons = {
     arrow: require('~/assets/icons/arrow.js').default,
+    // account
+    check: require('~/assets/icons/account/check.js').default,
+    // modal
+    closeModal: require('~/assets/icons/modal/closeModal.js').default,
+    apple: require('~/assets/icons/modal/apple.js').default,
+    fb: require('~/assets/icons/modal/fb.js').default,
+    google: require('~/assets/icons/modal/google.js').default,
+    instagram: require('~/assets/icons/modal/instagram.js').default,
+    KaKaoTalk: require('~/assets/icons/modal/KaKaoTalk.js').default,
+    LINE: require('~/assets/icons/modal/LINE.js').default,
+    qr: require('~/assets/icons/modal/qr.js').default,
+    user: require('~/assets/icons/modal/user.js').default,
+    twitter: require('~/assets/icons/modal/twitter.js').default,
 
     // search
     search: require('~/assets/icons/header/search/search.js').default,
-    close: require('~/assets/icons/header/search/close.js').default,
+    closeSearch: require('~/assets/icons/header/search/closeSearch.js').default,
     loading: require('~/assets/icons/header/search/loading.js').default,
-    check: require('~/assets/icons/header/search/check.js').default,
     // action
     plus: require('~/assets/icons/header/action/plus.js').default,
     more: require('~/assets/icons/header/action/more.js').default,
@@ -27,6 +39,11 @@ const icons = {
     userGroup: require('~/assets/icons/sidebar/menu/userGroup.js'),
     hashtag: require('~/assets/icons/sidebar/discover/hashtag.js').default,
     musicNote: require('~/assets/icons/sidebar/discover/musicNote.js').default,
+
+    // content action
+    heart: require('~/assets/icons/content/heart.js').default,
+    comment: require('~/assets/icons/content/comment.js').default,
+    share: require('~/assets/icons/content/share.js').default,
 }
 
 export default icons

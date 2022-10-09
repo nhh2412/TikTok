@@ -197,14 +197,14 @@ const userMenu = [
     },
 ]
 
-function Header() {
+function Header({ setIsShowModalLogin }) {
     return (
         <header className={cx('header')}>
             <div className={cx('wrapper')}>
-                <Link className="logo" to={config.routes.home}>
+                <Link className={cx('logo')} to={config.routes.home}>
                     <images.logo />
                 </Link>
-                <div className="search">
+                <div className={cx('search')}>
                     <Search />
                 </div>
                 <div className={cx('act')}>
@@ -234,13 +234,23 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <button className={cx('upload')}>
+                            <button
+                                className={cx('upload')}
+                                onClick={() => {
+                                    setIsShowModalLogin(true)
+                                }}
+                            >
                                 <div className={cx('icon-plus')}>
                                     <icons.plus />
                                 </div>
                                 <span>Tải lên</span>
                             </button>
-                            <button className={cx('login')}>
+                            <button
+                                className={cx('login')}
+                                onClick={() => {
+                                    setIsShowModalLogin(true)
+                                }}
+                            >
                                 <span>Đăng nhập</span>
                             </button>
                             <Menu items={MENU_ITEMS}>

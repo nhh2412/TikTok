@@ -10,6 +10,10 @@
         background: rgba(22, 24, 35, 0.03);
     }
 
+    &:active {
+        background: rgba(22, 24, 35, 0.06);
+    }
+
     .title {
         margin-left: 8px;
         font-weight: 700;
@@ -20,4 +24,10 @@
 nav .active {
     color: var(--primary);
     font-size: 20px;
+}
+
+@media (max-width: 1070px) {
+    .title {
+        display: none;
+    }
 }

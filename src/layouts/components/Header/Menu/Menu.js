@@ -33,8 +33,8 @@ function Menu({ children, items = [] }) {
         setHistory((prev) => prev.slice(0, prev.length - 1))
     }
 
-    const renderResult = (attrs) => (
-        <div className={cx('menu')} tabIndex="-1" {...attrs}>
+    const renderResult = () => (
+        <div className={cx('menu')} tabIndex="-1">
             {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
             <ul>{renderItems()}</ul>
             <span className={cx('arrow')}>

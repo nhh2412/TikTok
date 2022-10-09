@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import VideoRecommend from './VideoRecommend'
 
-function Home() {
+function Home({ setIsShowModalLogin }) {
     const [videoList, setVideoList] = useState([])
     useEffect(() => {
         fetch('https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=1')
@@ -11,7 +11,7 @@ function Home() {
     return (
         <>
             {videoList.map((data) => (
-                <VideoRecommend key={data.id} data={data} />
+                <VideoRecommend key={data.id} data={data} setIsShowModalLogin={setIsShowModalLogin} />
             ))}
         </>
     )

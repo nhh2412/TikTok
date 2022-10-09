@@ -13,7 +13,7 @@ import Footer from './Footer'
 
 const cx = classNames.bind(styles)
 
-function Sidebar() {
+function Sidebar({ setIsShowModalLogin }) {
     return (
         <aside className={cx('sidebar')}>
             <SimpleBar className={cx('wrapper')}>
@@ -24,15 +24,21 @@ function Sidebar() {
                 </nav>
                 <div className={cx('login', 'separate')}>
                     <p>Đăng nhập để follow các tác giả, thích video và xem bình luận.</p>
-                    <button>Đăng nhập</button>
+                    <button
+                        onClick={() => {
+                            setIsShowModalLogin(true)
+                        }}
+                    >
+                        Đăng nhập
+                    </button>
                 </div>
-                <div className={cx('separate')}>
-                    <AccountList />
+                <div className={cx('account-list', 'separate')}>
+                    <AccountList setIsShowModalLogin={setIsShowModalLogin} />
                 </div>
-                <div className={cx('separate')}>
+                <div className={cx('discover', 'separate')}>
                     <Discover />
                 </div>
-                <div className={cx('separate')}>
+                <div className={cx('footer', 'separate')}>
                     <Footer />
                 </div>
             </SimpleBar>

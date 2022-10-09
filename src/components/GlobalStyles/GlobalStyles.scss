@@ -2,6 +2,7 @@
     font-family: Arial, Tahoma, sans-serif;
     padding: 0;
     margin: 0;
+    border: none;
     box-sizing: border-box;
 }
 
@@ -52,10 +53,10 @@ body {
     }
 }
 
-.app {
-    display: flex;
-    justify-content: center;
+.hidden {
+    overflow-y: hidden;
 }
+
 // custom simple bar
 .simplebar-scrollbar::before {
     background: rgba(22, 24, 35, 0.08);

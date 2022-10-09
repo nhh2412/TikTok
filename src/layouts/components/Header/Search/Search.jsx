@@ -89,7 +89,7 @@ function Search() {
                     />
                     {searchValue && !loading && (
                         <span className={cx('input-icons')} onClick={handleClear}>
-                            <icons.close />
+                            <icons.closeSearch />
                         </span>
                     )}
                     {loading && (
