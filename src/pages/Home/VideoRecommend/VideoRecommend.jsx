@@ -3,12 +3,10 @@ import styles from './VideoRecommend.module.scss'
 import Tippy from '@tippyjs/react/headless'
 
 import icons from '~/assets/icons'
-import { useRef } from 'react'
 
 const cx = classNames.bind(styles)
 
 function VideoRecommend({ data, setIsShowModalLogin }) {
-    const tippyRef = useRef()
     return (
         <div className={cx('container')}>
             <div>

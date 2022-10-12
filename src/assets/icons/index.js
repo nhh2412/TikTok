@@ -1,49 +1,49 @@
 const icons = {
-    arrow: require('~/assets/icons/arrow.js').default,
-    // account
-    check: require('~/assets/icons/account/check.js').default,
-    // modal
-    closeModal: require('~/assets/icons/modal/closeModal.js').default,
-    apple: require('~/assets/icons/modal/apple.js').default,
-    fb: require('~/assets/icons/modal/fb.js').default,
-    google: require('~/assets/icons/modal/google.js').default,
-    instagram: require('~/assets/icons/modal/instagram.js').default,
-    KaKaoTalk: require('~/assets/icons/modal/KaKaoTalk.js').default,
-    LINE: require('~/assets/icons/modal/LINE.js').default,
-    qr: require('~/assets/icons/modal/qr.js').default,
-    user: require('~/assets/icons/modal/user.js').default,
-    twitter: require('~/assets/icons/modal/twitter.js').default,
+    // social
+    apple: require('~/assets/icons/social/apple.js').default,
+    fb: require('~/assets/icons/social/fb.js').default,
+    google: require('~/assets/icons/social/google.js').default,
+    instagram: require('~/assets/icons/social/instagram.js').default,
+    KaKaoTalk: require('~/assets/icons/social/KaKaoTalk.js').default,
+    LINE: require('~/assets/icons/social/LINE.js').default,
+    twitter: require('~/assets/icons/social/twitter.js').default,
 
-    // search
-    search: require('~/assets/icons/header/search/search.js').default,
-    closeSearch: require('~/assets/icons/header/search/closeSearch.js').default,
-    loading: require('~/assets/icons/header/search/loading.js').default,
-    // action
-    plus: require('~/assets/icons/header/action/plus.js').default,
-    more: require('~/assets/icons/header/action/more.js').default,
-    mailbox: require('~/assets/icons/header/action/mailbox.js').default,
-    message: require('~/assets/icons/header/action/message.js').default,
+    // deco
+    arrow: require('~/assets/icons/deco/arrow.js').default,
+    loading: require('~/assets/icons/deco/loading.js').default,
+
+    // button
+    closeSearch: require('~/assets/icons/button/closeSearch.js').default,
+    closeModal: require('~/assets/icons/button/closeModal.js').default,
+    search: require('~/assets/icons/button/search.js').default,
+    plus: require('~/assets/icons/button/plus.js').default,
+    more: require('~/assets/icons/button/more.js').default,
+    arrowLeft: require('~/assets/icons/button/arrowLeft.js').default,
+    heart: require('~/assets/icons/button/heart.js').default,
+    comment: require('~/assets/icons/button/comment.js').default,
+    share: require('~/assets/icons/button/share.js').default,
+
     // menu
-    language: require('~/assets/icons/header/menu/language.js').default,
-    question: require('~/assets/icons/header/menu/question.js').default,
-    keyboard: require('~/assets/icons/header/menu/keyboard.js').default,
-    arrowLeft: require('~/assets/icons/header/menu/arrowLeft.js').default,
-    user: require('~/assets/icons/header/menu/user.js').default,
-    tiktok: require('~/assets/icons/header/menu/tiktok.js').default,
-    setting: require('~/assets/icons/header/menu/setting.js').default,
-    signOut: require('~/assets/icons/header/menu/signOut.js').default,
+    mailbox: require('~/assets/icons/menu/mailbox.js').default,
+    message: require('~/assets/icons/menu/message.js').default,
+    language: require('~/assets/icons/menu/language.js').default,
+    question: require('~/assets/icons/menu/question.js').default,
+    keyboard: require('~/assets/icons/menu/keyboard.js').default,
+    user: require('~/assets/icons/menu/user.js').default,
+    tiktok: require('~/assets/icons/menu/tiktok.js').default,
+    setting: require('~/assets/icons/menu/setting.js').default,
+    qr: require('~/assets/icons/menu/qr.js').default,
+    signOut: require('~/assets/icons/menu/signOut.js').default,
 
-    // sidebar
-    camera: require('~/assets/icons/sidebar/menu/camera.js'),
-    home: require('~/assets/icons/sidebar/menu/home.js'),
-    userGroup: require('~/assets/icons/sidebar/menu/userGroup.js'),
-    hashtag: require('~/assets/icons/sidebar/discover/hashtag.js').default,
-    musicNote: require('~/assets/icons/sidebar/discover/musicNote.js').default,
+    // nav
+    camera: require('~/assets/icons/nav/camera.js'),
+    home: require('~/assets/icons/nav/home.js'),
+    userGroup: require('~/assets/icons/nav/userGroup.js'),
 
-    // content action
-    heart: require('~/assets/icons/content/heart.js').default,
-    comment: require('~/assets/icons/content/comment.js').default,
-    share: require('~/assets/icons/content/share.js').default,
+    // content
+    musicNote: require('~/assets/icons/content/musicNote.js').default,
+    hashtag: require('~/assets/icons/content/hashtag.js').default,
+    check: require('~/assets/icons/content/check.js').default,
 }
 
 export default icons
