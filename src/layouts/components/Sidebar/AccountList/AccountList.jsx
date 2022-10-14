@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import AccountItem from './AccountItem'
 import classNames from 'classnames/bind'
 import styles from './AccountList.module.scss'
+import * as suggestAccountsService from '~/services/suggestAccountsService'
 const cx = classNames.bind(styles)
 
 function AccountList({ setIsShowModalLogin }) {
@@ -10,14 +11,11 @@ function AccountList({ setIsShowModalLogin }) {
 
     useEffect(() => {
         const fetchApi = async () => {
-            let data = []
-            let response
-            let newData
-            for (let i = 0; i < 3; i++) {
-                response = await fetch(`https://tiktok.fullstack.edu.vn/api/users/suggested?page=${i}&per_page=12`)
-                newData = await response.json()
-                data = [...data, ...newData.data]
-            }
+            const data1 = await suggestAccountsService.get(1)
+            const data2 = await suggestAccountsService.get(2)
+            const data3 = await suggestAccountsService.get(3)
+            const data = [...data1, ...data2, ...data3]
+
             setSuggestAccounts(data)
         }
 

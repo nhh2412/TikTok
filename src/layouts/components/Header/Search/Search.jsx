@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from './Search.module.scss'
 
+import * as searchServices from '~/services/searchService'
+
 import AccountItem from '~/layouts/components/Header/Search/AccountItem'
 
 import icons from '~/assets/icons'
@@ -16,28 +18,25 @@ function Search() {
     const [showResult, setShowResult] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const debounced = useDebounce(searchValue, 500)
+    const debouncedSearchValue = useDebounce(searchValue, 500)
 
     const inputRef = useRef()
 
     useEffect(() => {
-        if (!debounced.trim()) return
+        if (!debouncedSearchValue.trim()) return
 
         const fetchApi = async () => {
             setLoading(true)
 
-            const response = await fetch(
-                `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`,
-            )
-            const result = await response.json()
+            const result = await searchServices.search(debouncedSearchValue)
 
-            setSearchResult(result.data)
+            setSearchResult(result)
             setLoading(false)
         }
 
         fetchApi()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [debounced])
+    }, [debouncedSearchValue])
 
     const handleClear = () => {
         setSearchValue('')
