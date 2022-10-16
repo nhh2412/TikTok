@@ -3,10 +3,11 @@ import styles from './VideoRecommend.module.scss'
 import Tippy from '@tippyjs/react/headless'
 
 import icons from '~/assets/icons'
+import { DataVideo } from '~/interface'
 
 const cx = classNames.bind(styles)
 
-function VideoRecommend({ data }: { data: any }) {
+function VideoRecommend({ data }: { data: DataVideo }) {
     return (
         <div className={cx('container')}>
             <div>

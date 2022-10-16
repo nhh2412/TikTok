@@ -8,6 +8,7 @@ import AccountItem from '~/layouts/components/Header/Search/AccountItem'
 
 import icons from '~/assets/icons'
 import { useDebounce } from '~/hooks'
+import { User } from '~/interface'
 
 const cx = classNames.bind(styles)
 
@@ -19,7 +20,7 @@ function Search() {
 
     const debouncedSearchValue = useDebounce(searchValue, 500)
 
-    const inputRef = useRef<any>()
+    const inputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
         if (!debouncedSearchValue.trim()) return
@@ -45,21 +46,21 @@ function Search() {
     const handleClear = () => {
         setSearchValue('')
         setSearchResult([])
-        inputRef.current.focus()
+        inputRef.current?.focus()
     }
 
     const handleHideResult = () => {
         setShowResult(false)
     }
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: { target: { value: string } }) => {
         const searchValue = e.target.value
         if (!searchValue.startsWith(' ')) {
             setSearchValue(searchValue)
         }
     }
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: { preventDefault: () => void }) => {
         e.preventDefault()
     }
 
@@ -72,7 +73,7 @@ function Search() {
                 <div className={cx('search-result')}>
                     <div className={cx('wrapper')}>
                         <div className={cx('account-title')}>Tài khoản</div>
-                        {searchResult.map((data: any) => (
+                        {searchResult.map((data: User) => (
                             <AccountItem data={data} key={data.id} />
                         ))}
                         <div className={cx('see-all')}>Xem tất cả kết quả dành cho "{searchValue}"</div>

@@ -6,7 +6,8 @@ const routes = {
     profile: '/@:nickname',
     feedback: '/feedback',
     live: '/live',
-    vi: '/vi-VN',
+    coin: '/coin',
+    setting: '/setting',
 }
 
 export default routes

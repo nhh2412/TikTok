@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 
 import { isImage } from '~/hooks'
 import icons from '~/assets/icons'
+import { User } from '~/interface'
 
 const cx = classNames.bind(styles)
 
-function AccountItem({ data }: { data: any }) {
+function AccountItem({ data }: { data: User }) {
     return (
         <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
             {isImage(data.avatar) ? (

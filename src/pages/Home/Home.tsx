@@ -3,6 +3,8 @@ import VideoRecommend from './VideoRecommend'
 
 import styles from './Home.module.scss'
 import classnames from 'classnames/bind'
+import { DataVideo } from '~/interface'
+import axios from 'axios'
 
 const cx = classnames.bind(styles)
 
@@ -10,13 +12,16 @@ function Home() {
     const [videoList, setVideoList] = useState([])
 
     useEffect(() => {
-        fetch('https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=1')
-            .then((res) => res.json())
-            .then((res) => setVideoList(res.data))
+        const getVideoForYou = async () => {
+            const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=1`)
+            setVideoList(res.data.data)
+        }
+        getVideoForYou()
     }, [])
+
     return videoList[0] ? (
         <>
-            {videoList.map((data: any) => (
+            {videoList.map((data: DataVideo) => (
                 <VideoRecommend key={data.id} data={data} />
             ))}
         </>

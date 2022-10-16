@@ -9,6 +9,7 @@ import config from '~/config'
 
 import images from '~/assets/images'
 import icons from '~/assets/icons'
+import React from 'react'
 
 const cx = classNames.bind(styles)
 
@@ -176,23 +177,22 @@ const userMenu = [
     {
         icon: <icons.user />,
         title: 'Xem hồ sơ',
-        // to: config.routes.profileUser,
+        to: config.routes.profile,
     },
     {
         icon: <icons.tiktok />,
         title: 'Nhận xu',
-        // to: config.routes.coin,
+        to: config.routes.coin,
     },
     {
         icon: <icons.setting />,
         title: 'Cài đặt',
-        // to: config.routes.setting,
+        to: config.routes.setting,
     },
     ...MENU_ITEMS,
     {
         icon: <icons.signOut />,
         title: 'Đăng xuất',
-        // to: config.routes.logout,
         separate: true,
     },
 ]
