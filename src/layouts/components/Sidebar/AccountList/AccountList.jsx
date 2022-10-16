@@ -11,7 +11,7 @@ function AccountList({ setIsShowModalLogin }) {
 
     useEffect(() => {
         const getSuggestAccounts = async () => {
-            const res = await axios.get(`http://tiktok.fullstack.edu.vn/api/users/suggested?page=1&per_page=20`)
+            const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/users/suggested?page=1&per_page=20`)
             setSuggestAccounts(res.data.data)
         }
         getSuggestAccounts()
