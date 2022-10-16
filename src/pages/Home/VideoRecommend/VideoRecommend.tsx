@@ -6,7 +6,7 @@ import icons from '~/assets/icons'
 
 const cx = classNames.bind(styles)
 
-function VideoRecommend({ data, setIsShowModalLogin }) {
+function VideoRecommend({ data }: { data: any }) {
     return (
         <div className={cx('container')}>
             <div>
@@ -33,7 +33,7 @@ function VideoRecommend({ data, setIsShowModalLogin }) {
                                                 height={44}
                                             />
                                         </a>
-                                        <button onClick={() => setIsShowModalLogin(true)}>Follow</button>
+                                        <button onClick={() => true}>Follow</button>
                                     </div>
                                     <a href="." className={cx('nickname')}>
                                         <h4>{data.user.nickname}</h4> {data.user.tick && <icons.check />}
@@ -75,19 +75,19 @@ function VideoRecommend({ data, setIsShowModalLogin }) {
                 <div className={cx('video-wrapper')}>
                     <video src={data.file_url}></video>
                     <div className={cx('action')}>
-                        <div className={cx('icon')} onClick={() => setIsShowModalLogin(true)}>
+                        <div className={cx('icon')} onClick={() => true}>
                             <button>
                                 <icons.heart />
                             </button>
                             <strong>{data.likes_count}</strong>
                         </div>
-                        <div className={cx('icon')} onClick={() => setIsShowModalLogin(true)}>
+                        <div className={cx('icon')} onClick={() => true}>
                             <button>
                                 <icons.comment />
                             </button>
                             <strong>{data.comments_count}</strong>
                         </div>
-                        <div className={cx('icon')} onClick={() => setIsShowModalLogin(true)}>
+                        <div className={cx('icon')} onClick={() => true}>
                             <button>
                                 <icons.share />
                             </button>
@@ -96,7 +96,7 @@ function VideoRecommend({ data, setIsShowModalLogin }) {
                     </div>
                 </div>
             </div>
-            <button className={cx('follow-btn')} onClick={() => setIsShowModalLogin(true)}>
+            <button className={cx('follow-btn')} onClick={() => true}>
                 Follow
             </button>
         </div>

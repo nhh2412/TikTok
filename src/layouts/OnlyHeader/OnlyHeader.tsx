@@ -1,6 +1,6 @@
 import Header from '~/layouts/components/Header'
 
-function OnlyHeader({ children }) {
+function OnlyHeader({ children }: { children: any }) {
     return (
         <>
             <Header />

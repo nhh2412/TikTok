@@ -19,6 +19,6 @@ const publicRoutes = [
     { path: config.routes.profile, component: Profile },
 ]
 
-const privateRoutes = []
+// const privateRoutes = []
 
-export { publicRoutes, privateRoutes }
+export { publicRoutes }

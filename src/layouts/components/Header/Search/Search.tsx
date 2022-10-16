@@ -19,7 +19,7 @@ function Search() {
 
     const debouncedSearchValue = useDebounce(searchValue, 500)
 
-    const inputRef = useRef()
+    const inputRef = useRef<any>()
 
     useEffect(() => {
         if (!debouncedSearchValue.trim()) return
@@ -52,14 +52,14 @@ function Search() {
         setShowResult(false)
     }
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
         const searchValue = e.target.value
         if (!searchValue.startsWith(' ')) {
             setSearchValue(searchValue)
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault()
     }
 
@@ -67,12 +67,12 @@ function Search() {
         <TippyHeadless
             interactive
             onClickOutside={handleHideResult}
-            visible={showResult && searchValue && searchResult.length > 0}
-            render={(attrs) => (
-                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+            visible={showResult && !!searchValue && searchResult.length > 0}
+            render={() => (
+                <div className={cx('search-result')}>
                     <div className={cx('wrapper')}>
                         <div className={cx('account-title')}>Tài khoản</div>
-                        {searchResult.map((data) => (
+                        {searchResult.map((data: any) => (
                             <AccountItem data={data} key={data.id} />
                         ))}
                         <div className={cx('see-all')}>Xem tất cả kết quả dành cho "{searchValue}"</div>

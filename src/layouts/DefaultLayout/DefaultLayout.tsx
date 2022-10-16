@@ -6,12 +6,12 @@ import Sidebar from '~/layouts/components/Sidebar'
 
 const cx = classNames.bind(styles)
 
-function DefaultLayout({ children, setIsShowModalLogin }) {
+function DefaultLayout({ children }: { children: any }) {
     return (
         <>
-            <Header setIsShowModalLogin={setIsShowModalLogin} />
+            <Header />
             <div className={cx('container')}>
-                <Sidebar setIsShowModalLogin={setIsShowModalLogin} />
+                <Sidebar />
                 <div className={cx('main')}>{children}</div>
             </div>
         </>

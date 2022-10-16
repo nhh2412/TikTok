@@ -6,7 +6,7 @@ import classnames from 'classnames/bind'
 
 const cx = classnames.bind(styles)
 
-function Home({ setIsShowModalLogin }) {
+function Home() {
     const [videoList, setVideoList] = useState([])
 
     useEffect(() => {
@@ -16,8 +16,8 @@ function Home({ setIsShowModalLogin }) {
     }, [])
     return videoList[0] ? (
         <>
-            {videoList.map((data) => (
-                <VideoRecommend key={data.id} data={data} setIsShowModalLogin={setIsShowModalLogin} />
+            {videoList.map((data: any) => (
+                <VideoRecommend key={data.id} data={data} />
             ))}
         </>
     ) : (

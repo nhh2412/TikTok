@@ -4,16 +4,16 @@ import DefaultLayout from '~/layouts'
 import { Fragment, useState } from 'react'
 import ModalLogin from './components/ModalLogin'
 
-function App() {
-    const [isShowModalLogin, setIsShowModalLogin] = useState(false)
+import './GlobalStyles.scss'
 
+function App() {
     return (
         <div className="app">
             <Router>
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page = route.component
-                        let Layout = DefaultLayout
+                        let Layout: any = DefaultLayout
                         if (route.layout === null) {
                             Layout = Fragment
                         } else if (route.layout) {
@@ -25,13 +25,10 @@ function App() {
                                 path={route.path}
                                 element={
                                     <>
-                                        <Layout setIsShowModalLogin={setIsShowModalLogin}>
-                                            <Page setIsShowModalLogin={setIsShowModalLogin} />
+                                        <Layout>
+                                            <Page />
                                         </Layout>
-                                        <ModalLogin
-                                            isShowModalLogin={isShowModalLogin}
-                                            setIsShowModalLogin={setIsShowModalLogin}
-                                        />
+                                        <ModalLogin />
                                     </>
                                 }
                             />

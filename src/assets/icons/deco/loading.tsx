@@ -1,6 +1,6 @@
-function loading({ className }) {
+function loading() {
     return (
-        <svg width="16" height="16" viewBox="0 0 48 48" fill="rgba(22, 24, 35, .34)" className={className}>
+        <svg width="16" height="16" viewBox="0 0 48 48" fill="rgba(22, 24, 35, .34)">
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"

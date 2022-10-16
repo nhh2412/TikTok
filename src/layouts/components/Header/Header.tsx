@@ -170,34 +170,34 @@ const MENU_ITEMS = [
     },
 ]
 
-let currentUser
+let currentUser: boolean
 
 const userMenu = [
     {
         icon: <icons.user />,
         title: 'Xem hồ sơ',
-        to: config.routes.profileUser,
+        // to: config.routes.profileUser,
     },
     {
         icon: <icons.tiktok />,
         title: 'Nhận xu',
-        to: config.routes.coin,
+        // to: config.routes.coin,
     },
     {
         icon: <icons.setting />,
         title: 'Cài đặt',
-        to: config.routes.setting,
+        // to: config.routes.setting,
     },
     ...MENU_ITEMS,
     {
         icon: <icons.signOut />,
         title: 'Đăng xuất',
-        to: config.routes.logout,
+        // to: config.routes.logout,
         separate: true,
     },
 ]
 
-function Header({ setIsShowModalLogin }) {
+function Header() {
     return (
         <header className={cx('header')}>
             <div className={cx('wrapper')}>
@@ -234,23 +234,13 @@ function Header({ setIsShowModalLogin }) {
                         </>
                     ) : (
                         <>
-                            <button
-                                className={cx('upload')}
-                                onClick={() => {
-                                    setIsShowModalLogin(true)
-                                }}
-                            >
+                            <button className={cx('upload')} onClick={() => {}}>
                                 <div className={cx('icon-plus')}>
                                     <icons.plus />
                                 </div>
                                 <span>Tải lên</span>
                             </button>
-                            <button
-                                className={cx('login')}
-                                onClick={() => {
-                                    setIsShowModalLogin(true)
-                                }}
-                            >
+                            <button className={cx('login')} onClick={() => {}}>
                                 <span>Đăng nhập</span>
                             </button>
                             <Menu items={MENU_ITEMS}>

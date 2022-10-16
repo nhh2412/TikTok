@@ -41,34 +41,34 @@ const LOGIN_ITEM = [
     },
 ]
 
-const prevTitle = document.title
-function ModalLogin({ isShowModalLogin, setIsShowModalLogin }) {
-    const [items, setItems] = useState(LOGIN_ITEM)
+// const prevTitle = document.title
+function ModalLogin() {
+    const [items, setItems] = useState<any>(LOGIN_ITEM)
     const current = items[items.length - 1]
 
-    useEffect(() => {
-        setItems(LOGIN_ITEM)
-    }, [isShowModalLogin])
+    // useEffect(() => {
+    //     setItems(LOGIN_ITEM)
+    // }, [isShowModalLogin])
 
-    if (isShowModalLogin) {
-        document.querySelector('body').classList.add('hidden')
-        document.onkeydown = (e) => {
-            e.key === 'Escape' && setIsShowModalLogin(false)
-        }
-        document.title = current.documentTitle
-    } else {
-        document.querySelector('body').classList.remove('hidden')
-        document.title = prevTitle
-    }
+    // if (isShowModalLogin) {
+    //     document.querySelector('body').classList.add('hidden')
+    //     document.onkeydown = (e) => {
+    //         e.key === 'Escape' && setIsShowModalLogin(false)
+    //     }
+    //     document.title = current.documentTitle
+    // } else {
+    //     document.querySelector('body').classList.remove('hidden')
+    //     document.title = prevTitle
+    // }
 
     return (
-        isShowModalLogin && (
+        (
             <div className={cx('modal')}>
                 <div className={cx('mask')}></div>
                 <div className={cx('wrapper')}>
                     <button
                         onClick={() => {
-                            setIsShowModalLogin(false)
+                            // setIsShowModalLogin(false)
                         }}
                     >
                         <icons.closeModal />
@@ -77,7 +77,7 @@ function ModalLogin({ isShowModalLogin, setIsShowModalLogin }) {
                         <div className={cx('content-wrapper')}>
                             <h3>{current.title}</h3>
                             {Array.isArray(current.children)
-                                ? current.children.map((e, i) => {
+                                ? current.children.map((e: any, i: number) => {
                                       return (
                                           <LoginItem
                                               icon={e.icon}
@@ -111,7 +111,7 @@ function ModalLogin({ isShowModalLogin, setIsShowModalLogin }) {
                     </footer>
                 </div>
             </div>
-        )
+        ) && <></>
     )
 }
 

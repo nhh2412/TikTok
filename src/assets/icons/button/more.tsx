@@ -1,4 +1,4 @@
-function more({ a, setA }) {
+function more() {
     return (
         <svg width="20px" height="20px" viewBox="0 0 48 48" fill="currentColor">
             <path

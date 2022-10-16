@@ -7,7 +7,7 @@ import icons from '~/assets/icons'
 
 const cx = classNames.bind(styles)
 
-function AccountItem({ data }) {
+function AccountItem({ data }: { data: any }) {
     return (
         <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
             {isImage(data.avatar) ? (

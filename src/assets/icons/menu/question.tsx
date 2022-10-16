@@ -1,6 +1,6 @@
-function question({ className }) {
+function question() {
     return (
-        <svg width="20px" height="20px" viewBox="0 0 48 48" fill="currentColor" className={className}>
+        <svg width="20px" height="20px" viewBox="0 0 48 48" fill="currentColor">
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"

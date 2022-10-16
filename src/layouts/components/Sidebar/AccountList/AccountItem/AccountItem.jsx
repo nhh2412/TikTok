@@ -7,7 +7,7 @@ import { isImage } from '~/hooks'
 
 const cx = classNames.bind(styles)
 
-function AccountItem({ data, index, isShowAll, setIsShowModalLogin }) {
+function AccountItem({ data, index, isShowAll }) {
     return (
         <Tippy
             delay={[800, 800]}
@@ -19,7 +19,7 @@ function AccountItem({ data, index, isShowAll, setIsShowModalLogin }) {
                         <a href="#." className={cx('avatar')}>
                             <img src={data.avatar} alt={data.nickname} width={44} height={44} />
                         </a>
-                        <button onClick={() => setIsShowModalLogin(true)}>Follow</button>
+                        <button onClick={() => {}}>Follow</button>
                     </div>
                     <a href="." className={cx('nickname')}>
                         <h4>{data.nickname}</h4> {data.tick && <icons.check />}

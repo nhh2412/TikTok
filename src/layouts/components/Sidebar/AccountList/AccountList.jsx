@@ -5,7 +5,7 @@ import styles from './AccountList.module.scss'
 import axios from 'axios'
 const cx = classNames.bind(styles)
 
-function AccountList({ setIsShowModalLogin }) {
+function AccountList() {
     const [suggestAccounts, setSuggestAccounts] = useState([])
     const [showAllSuggestAccounts, setShowAllSuggestAccounts] = useState(false)
 
@@ -23,13 +23,7 @@ function AccountList({ setIsShowModalLogin }) {
                 {suggestAccounts[0] ? (
                     <>
                         {suggestAccounts.map((data, i) => (
-                            <AccountItem
-                                data={data}
-                                index={i}
-                                key={i}
-                                isShowAll={showAllSuggestAccounts}
-                                setIsShowModalLogin={setIsShowModalLogin}
-                            />
+                            <AccountItem data={data} index={i} key={i} isShowAll={showAllSuggestAccounts} />
                         ))}
                         <div
                             className={cx('show-all')}

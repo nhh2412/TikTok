@@ -1,6 +1,6 @@
-function search({ className }) {
+function search() {
     return (
-        <svg width="24" height="24" viewBox="0 0 48 48" fill="currentColor" className={className}>
+        <svg width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
