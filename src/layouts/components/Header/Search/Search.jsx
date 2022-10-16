@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from './Search.module.scss'
 
-import * as searchServices from '~/services/searchService'
-
+import axios from 'axios'
 import AccountItem from '~/layouts/components/Header/Search/AccountItem'
 
 import icons from '~/assets/icons'
@@ -25,16 +24,21 @@ function Search() {
     useEffect(() => {
         if (!debouncedSearchValue.trim()) return
 
-        const fetchApi = async () => {
+        const getResultSearch = async () => {
             setLoading(true)
 
-            const result = await searchServices.search(debouncedSearchValue)
+            const res = await axios.get(
+                `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+                    debouncedSearchValue,
+                )}&type=less`,
+            )
 
-            setSearchResult(result)
             setLoading(false)
+
+            setSearchResult(res.data.data)
         }
 
-        fetchApi()
+        getResultSearch()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debouncedSearchValue])
 

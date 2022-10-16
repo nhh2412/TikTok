@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import AccountItem from './AccountItem'
 import classNames from 'classnames/bind'
 import styles from './AccountList.module.scss'
-import * as suggestedUsers from '~/services/suggestUsersService'
+import axios from 'axios'
 const cx = classNames.bind(styles)
 
 function AccountList({ setIsShowModalLogin }) {
@@ -10,16 +10,11 @@ function AccountList({ setIsShowModalLogin }) {
     const [showAllSuggestAccounts, setShowAllSuggestAccounts] = useState(false)
 
     useEffect(() => {
-        const fetchApi = async () => {
-            const data1 = await suggestedUsers.users(1)
-            const data2 = await suggestedUsers.users(2)
-            const data3 = await suggestedUsers.users(3)
-            const data = [...data1, ...data2, ...data3]
-
-            setSuggestAccounts(data)
+        const getSuggestAccounts = async () => {
+            const res = await axios.get(`http://tiktok.fullstack.edu.vn/api/users/suggested?page=1&per_page=20`)
+            setSuggestAccounts(res.data.data)
         }
-
-        fetchApi()
+        getSuggestAccounts()
     }, [])
     return (
         <div className={cx('account-container')}>
