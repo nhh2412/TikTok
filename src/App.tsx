@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { publicRoutes } from '~/routes'
 import DefaultLayout from '~/layouts'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import ModalLogin from './components/ModalLogin'
 
 import './GlobalStyles.scss'

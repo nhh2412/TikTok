@@ -2,7 +2,7 @@ import classnames from 'classnames/bind'
 import styles from './ModalLogin.module.scss'
 import icons from '~/assets/icons'
 import LoginItem from './LoginItem'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const cx = classnames.bind(styles)
 
