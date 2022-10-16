@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import AccountItem from './AccountItem'
 import classNames from 'classnames/bind'
 import styles from './AccountList.module.scss'
-import * as suggestAccountsService from '~/services/suggestAccountsService'
+import * as suggestedUsers from '~/services/suggestUsersService'
 const cx = classNames.bind(styles)
 
 function AccountList({ setIsShowModalLogin }) {
@@ -11,9 +11,9 @@ function AccountList({ setIsShowModalLogin }) {
 
     useEffect(() => {
         const fetchApi = async () => {
-            const data1 = await suggestAccountsService.get(1)
-            const data2 = await suggestAccountsService.get(2)
-            const data3 = await suggestAccountsService.get(3)
+            const data1 = await suggestedUsers.users(1)
+            const data2 = await suggestedUsers.users(2)
+            const data3 = await suggestedUsers.users(3)
             const data = [...data1, ...data2, ...data3]
 
             setSuggestAccounts(data)
