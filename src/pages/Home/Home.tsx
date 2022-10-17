@@ -3,7 +3,7 @@ import VideoRecommend from './VideoRecommend'
 
 import styles from './Home.module.scss'
 import classnames from 'classnames/bind'
-import { DataVideo } from '~/interface'
+import { Video } from '~/interface'
 import axios from 'axios'
 
 const cx = classnames.bind(styles)
@@ -21,7 +21,7 @@ function Home() {
 
     return videoList[0] ? (
         <>
-            {videoList.map((data: DataVideo) => (
+            {videoList.map((data: Video) => (
                 <VideoRecommend key={data.id} data={data} />
             ))}
         </>

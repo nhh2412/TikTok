@@ -4,10 +4,12 @@ import Tippy from '@tippyjs/react/headless'
 
 import icons from '~/assets/icons'
 import { isImage } from '~/hooks'
+import { User } from '~/interface'
+import { FC } from 'react'
 
 const cx = classNames.bind(styles)
 
-function AccountItem({ data, index, isShowAll }) {
+const AccountItem: FC<{ data: User; index: number; isShowAll: boolean }> = ({ data, index, isShowAll }) => {
     return (
         <Tippy
             delay={[800, 800]}

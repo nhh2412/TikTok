@@ -11,7 +11,7 @@ export interface User {
     id: number
 }
 
-export interface DataVideo {
+export interface Video {
     id: number
     description: string
     file_url: string
