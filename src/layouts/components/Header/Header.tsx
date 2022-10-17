@@ -171,7 +171,7 @@ const MENU_ITEMS = [
     },
 ]
 
-let currentUser: boolean
+let currentUser: boolean = true
 
 const userMenu = [
     {
