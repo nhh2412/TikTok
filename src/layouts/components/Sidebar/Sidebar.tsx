@@ -18,9 +18,9 @@ function Sidebar() {
         <aside className={cx('sidebar')}>
             <SimpleBar className={cx('wrapper')}>
                 <nav className={cx('navigation')}>
-                    <MenuItem title="Dành cho bạn" to={config.routes.home} icon={icons.home} />
-                    <MenuItem title="Đang Follow" to={config.routes.following} icon={icons.userGroup} />
-                    <MenuItem title="LIVE" to={config.routes.live} icon={icons.camera} />
+                    <MenuItem title="Dành cho bạn" to={config.routes.home} icons={icons.home} />
+                    <MenuItem title="Đang Follow" to={config.routes.following} icons={icons.userGroup} />
+                    <MenuItem title="LIVE" to={config.routes.live} icons={icons.camera} />
                 </nav>
                 <div className={cx('login', 'separate')}>
                     <p>Đăng nhập để follow các tác giả, thích video và xem bình luận.</p>

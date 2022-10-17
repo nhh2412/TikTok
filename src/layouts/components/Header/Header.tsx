@@ -171,9 +171,9 @@ const MENU_ITEMS = [
     },
 ]
 
-let currentUser: boolean = true
+let currentUser: boolean = false
 
-const userMenu = [
+const USER_MENU = [
     {
         icon: <icons.user />,
         title: 'Xem hồ sơ',
@@ -228,7 +228,7 @@ function Header() {
                                     <icons.mailbox />
                                 </span>
                             </Tippy>
-                            <Menu items={userMenu}>
+                            <Menu items={USER_MENU}>
                                 <div className={cx('user-icon')}></div>
                             </Menu>
                         </>
