@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { publicRoutes } from '~/routes'
 import DefaultLayout from '~/layouts/DefaultLayout'
-// import { Fragment } from 'react'
 import ModalLogin from './components/ModalLogin'
 
 import './GlobalStyles.scss'
-import { ExoticComponent, FC, Fragment, ReactElement } from 'react'
+import { FC, ReactElement } from 'react'
 
 function App() {
     return (
@@ -14,12 +13,9 @@ function App() {
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page: () => ReactElement = route.Component
-                        let Layout: FC<{ children: ReactElement }> | ExoticComponent<{ children: ReactElement }> =
-                            DefaultLayout
+                        let Layout: FC<{ children: ReactElement; path: string }> = DefaultLayout
 
-                        if (route.layout === null) {
-                            Layout = Fragment
-                        } else if (route.layout) {
+                        if (route.layout) {
                             Layout = route.layout
                         }
                         return (
@@ -28,7 +24,7 @@ function App() {
                                 path={route.path}
                                 element={
                                     <>
-                                        <Layout>
+                                        <Layout path={route.path}>
                                             <Page />
                                         </Layout>
                                         <ModalLogin />

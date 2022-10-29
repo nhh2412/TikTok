@@ -7,13 +7,13 @@ import { FC, ReactElement } from 'react'
 
 const cx = classNames.bind(styles)
 
-const DefaultLayout: FC<{ children: ReactElement }> = ({ children }) => {
+const DefaultLayout: FC<{ children: ReactElement; path: string }> = ({ children, path }) => {
     return (
         <>
             <Header />
             <div className={cx('container')}>
-                <Sidebar />
-                <div className={cx('main')}>{children}</div>
+                <Sidebar path={path} />
+                {children}
             </div>
         </>
     )

@@ -34,7 +34,7 @@ function Menu({ children, items = [] }) {
     }
 
     const renderResult = () => (
-        <div className={cx('menu')} tabIndex="-1">
+        <div className={cx('menu')}>
             {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
             <ul>{renderItems()}</ul>
             <span className={cx('arrow')}>

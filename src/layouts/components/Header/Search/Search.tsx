@@ -73,8 +73,8 @@ function Search() {
                 <div className={cx('search-result')}>
                     <div className={cx('wrapper')}>
                         <div className={cx('account-title')}>Tài khoản</div>
-                        {searchResult.map((data: User) => (
-                            <AccountItem data={data} key={data.id} />
+                        {searchResult.map((data: User, index: number) => (
+                            <AccountItem data={data} key={index} />
                         ))}
                         <div className={cx('see-all')}>Xem tất cả kết quả dành cho "{searchValue}"</div>
                     </div>

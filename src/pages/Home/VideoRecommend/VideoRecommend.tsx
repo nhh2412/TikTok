@@ -70,7 +70,12 @@ function VideoRecommend({ data }: { data: Video }) {
 
                     <div className={cx('description')}>{data.description}</div>
                     <h4 className={cx('music')}>
-                        <a href="#.">nhạc nền - Đà Lạt +</a>
+                        <a href="#.">
+                            <span className={cx('music-icon')}>
+                                <icons.musicNote />
+                            </span>
+                            {data.music}
+                        </a>
                     </h4>
                 </div>
                 <div className={cx('video-wrapper')}>

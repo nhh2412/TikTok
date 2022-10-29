@@ -31,6 +31,17 @@
         &:hover {
             text-decoration: underline;
         }
+
+        a {
+            display: flex;
+            align-items: center;
+        }
+
+        .music-icon {
+            margin-right: 5px;
+            display: inline-block;
+            height: 16px;
+        }
     }
 }
 

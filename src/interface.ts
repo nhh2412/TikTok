@@ -10,6 +10,7 @@ export interface User {
     full_name: string
     tick: boolean
     id: number
+    popular_video: Video
 }
 
 export interface Video {
@@ -20,6 +21,8 @@ export interface Video {
     comments_count: number
     shares_count: number
     user: User
+    music: string
+    thumb_url: string
 }
 
 export interface Menu {

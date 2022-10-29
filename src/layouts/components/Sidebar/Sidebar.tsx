@@ -13,7 +13,7 @@ import Footer from './Footer'
 
 const cx = classNames.bind(styles)
 
-function Sidebar() {
+function Sidebar({ path }: { path: string }) {
     return (
         <aside className={cx('sidebar')}>
             <SimpleBar className={cx('wrapper')}>
@@ -26,9 +26,11 @@ function Sidebar() {
                     <p>Đăng nhập để follow các tác giả, thích video và xem bình luận.</p>
                     <button onClick={() => {}}>Đăng nhập</button>
                 </div>
-                <div className={cx('account-list', 'separate')}>
-                    <AccountList />
-                </div>
+                {path !== '/following' && (
+                    <div className={cx('account-list', 'separate')}>
+                        <AccountList />
+                    </div>
+                )}
                 <div className={cx('discover', 'separate')}>
                     <Discover />
                 </div>

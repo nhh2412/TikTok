@@ -1,0 +1,28 @@
+.main {
+    width: 720px;
+    padding: 44px 0;
+    margin-right: 24px;
+}
+
+.recommend-card {
+    margin-right: 18px;
+    width: 226px;
+    height: 302px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    float: left;
+    position: relative;
+    color: #fff;
+
+    &:nth-of-type(3n) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    a {
+        border-radius: 8px;
+        background-color: rgba(22, 24, 35, 0.06);
+        height: 100%;
+        width: 100%;
+        display: block;
+    }
+}
