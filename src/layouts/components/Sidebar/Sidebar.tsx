@@ -10,12 +10,13 @@ import MenuItem from './MenuItem'
 import AccountList from './AccountList/AccountList'
 import Discover from './Discover'
 import Footer from './Footer'
+import AccountLiveList from './AccountLiveList'
 
 const cx = classNames.bind(styles)
 
 function Sidebar({ path }: { path: string }) {
     return (
-        <aside className={cx('sidebar')}>
+        <aside className={cx('sidebar', path === '/live' && 'live-sidebar')}>
             <SimpleBar className={cx('wrapper')}>
                 <nav className={cx('navigation')}>
                     <MenuItem title="Dành cho bạn" to={config.routes.home} icons={icons.home} />
@@ -26,14 +27,21 @@ function Sidebar({ path }: { path: string }) {
                     <p>Đăng nhập để follow các tác giả, thích video và xem bình luận.</p>
                     <button onClick={() => {}}>Đăng nhập</button>
                 </div>
-                {path !== '/following' && (
+                {path !== '/following' && path !== '/live' && (
                     <div className={cx('account-list', 'separate')}>
                         <AccountList />
                     </div>
                 )}
-                <div className={cx('discover', 'separate')}>
-                    <Discover />
-                </div>
+                {path === '/live' && (
+                    <div className={cx('account-list', 'separate')}>
+                        <AccountLiveList />
+                    </div>
+                )}
+                {path !== '/live' && (
+                    <div className={cx('discover', 'separate')}>
+                        <Discover />
+                    </div>
+                )}
                 <div className={cx('footer', 'separate')}>
                     <Footer />
                 </div>

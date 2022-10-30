@@ -1,0 +1,14 @@
+.main {
+    margin: 25px;
+}
+
+.live-room {
+    position: relative;
+    height: calc(82vh);
+    width: 1250px;
+    border-radius: 4px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 130%);
+    .loader {
+        top: 50% !important;
+    }
+}

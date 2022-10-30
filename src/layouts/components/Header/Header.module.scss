@@ -22,6 +22,12 @@
     padding-right: 24px;
 }
 
+.header-full {
+    .wrapper {
+        width: 100%;
+    }
+}
+
 .act {
     display: flex;
     align-items: center;

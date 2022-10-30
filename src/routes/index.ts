@@ -7,11 +7,12 @@ import Profile from '~/pages/Profile'
 
 import config from '~/config'
 import { FC, ReactElement } from 'react'
+import FullScreenLayout from '~/layouts/FullScreenLayout'
 
 interface Routes {
     path: string
     Component: () => ReactElement
-    layout?: FC<{ children: ReactElement }> | null
+    layout?: FC<{ children: ReactElement; path: string }>
 }
 
 // public routes
@@ -20,7 +21,7 @@ const publicRoutes: Routes[] = [
     { path: config.routes.following, Component: Following },
     { path: config.routes.feedback, Component: Feedback },
     { path: config.routes.upload, Component: Upload },
-    { path: config.routes.live, Component: Live },
+    { path: config.routes.live, Component: Live, layout: FullScreenLayout },
     { path: config.routes.profile, Component: Profile },
 ]
 

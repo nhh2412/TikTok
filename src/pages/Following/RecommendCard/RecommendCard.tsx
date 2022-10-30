@@ -7,11 +7,9 @@ import icons from '~/assets/icons'
 const cx = classNames.bind(styles)
 
 function RecommendCard({ data }: { data: User }) {
-    console.log(isImage('https://files.fullstack.edu.vn/f8-tiktok/videos/520-63516c443cbf7.jpg'))
-
     return (
         <a href="#/">
-            <div className={cx('background')}>
+            <div className={cx('background', 'skeleton-animation')}>
                 {isImage(data.popular_video.thumb_url) && <img src={data.popular_video.thumb_url} alt="" />}
             </div>
             <div className={cx('info')}>

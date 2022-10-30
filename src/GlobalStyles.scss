@@ -19,7 +19,6 @@ a {
 :root {
     --default-layout-width: 1150px;
     --header-layout-height: 60px;
-    --sidebar-layout-width: 356px;
     --primary: rgba(254, 44, 85, 1);
     --animation-duration: 0.8s;
     --circle-diameter: 20px;
@@ -93,7 +92,9 @@ body {
 #loader {
     position: relative;
     left: 50%;
-    top: 10px;
+    top: 20px;
+    display: inline-block;
+    height: 40px;
 }
 
 #loader::before,

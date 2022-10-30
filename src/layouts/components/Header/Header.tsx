@@ -197,9 +197,9 @@ const USER_MENU = [
     },
 ]
 
-function Header() {
+function Header({ path }: { path?: string }) {
     return (
-        <header className={cx('header')}>
+        <header className={cx('header', path === '/live' && 'header-full')}>
             <div className={cx('wrapper')}>
                 <Link className={cx('logo')} to={config.routes.home}>
                     <images.logo />

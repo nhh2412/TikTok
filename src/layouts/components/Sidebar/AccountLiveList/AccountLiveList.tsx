@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import AccountItem from '../AccountItem'
 import classNames from 'classnames/bind'
-import styles from './AccountList.module.scss'
+import styles from './AccountLiveList.module.scss'
 import axios from 'axios'
 const cx = classNames.bind(styles)
 
@@ -10,16 +10,17 @@ function AccountList() {
     const [showAllSuggestAccounts, setShowAllSuggestAccounts] = useState(false)
 
     useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const getSuggestAccounts = async () => {
             const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/users/suggested?page=1&per_page=20`)
             setSuggestAccounts(res.data.data)
         }
-        getSuggestAccounts()
+        // getSuggestAccounts()
     }, [])
     return (
         <div className={cx('account-container')}>
             <div className={cx('account-suggest')}>
-                <p className={cx('title')}>Tài khoản được đề xuất</p>
+                <p className={cx('title')}>Các chủ phòng được đề xuất</p>
                 {suggestAccounts[0] ? (
                     <>
                         {suggestAccounts.map((data, i) => (

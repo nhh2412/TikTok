@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { publicRoutes } from '~/routes'
 import DefaultLayout from '~/layouts/DefaultLayout'
-import ModalLogin from './components/ModalLogin'
 
 import './GlobalStyles.scss'
 import { FC, ReactElement } from 'react'
@@ -23,12 +22,9 @@ function App() {
                                 key={index}
                                 path={route.path}
                                 element={
-                                    <>
-                                        <Layout path={route.path}>
-                                            <Page />
-                                        </Layout>
-                                        <ModalLogin />
-                                    </>
+                                    <Layout path={route.path}>
+                                        <Page />
+                                    </Layout>
                                 }
                             />
                         )

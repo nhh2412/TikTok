@@ -1,11 +1,18 @@
 .sidebar {
-    min-width: var(--sidebar-layout-width);
+    min-width: 356px;
     .wrapper {
         height: calc(100vh - 60px);
         padding: 20px 8px 26px 8px !important;
         position: fixed;
-        width: var(--sidebar-layout-width);
+        width: 356px;
         padding: 8px;
+    }
+}
+
+.live-sidebar {
+    min-width: 240px;
+    .wrapper {
+        width: 240px;
     }
 }
 

@@ -24,9 +24,9 @@ function Following() {
     return (
         <div className={cx('main')}>
             {!loading ? (
-                suggestAccounts.map((data, index) => (
-                    <div className={cx('recommend-card')}>
-                        <RecommendCard data={data} key={index} />
+                suggestAccounts.map((data) => (
+                    <div className={cx('recommend-card')} key={data.id}>
+                        <RecommendCard data={data} />
                     </div>
                 ))
             ) : (

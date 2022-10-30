@@ -29,7 +29,7 @@ function Home() {
 
     const handleScroll = () => {
         if (window.scrollY + window.innerHeight + 1 > document.body.clientHeight && !loading) {
-            setPage((prev) => prev + 1)
+            setTimeout(() => setPage((prev) => prev + 1), 2000)
         }
     }
     useEffect(() => {
@@ -38,11 +38,12 @@ function Home() {
     }, [])
 
     return videoList.length > 0 ? (
-        <div className={cx('main')}>
-            {videoList.map((data: Video, index: number) => (
-                <VideoRecommend key={index} data={data} />
+        <main className={cx('main')}>
+            {videoList.map((data: Video) => (
+                <VideoRecommend key={data.id} data={data} />
             ))}
-        </div>
+            <div id="loader"></div>
+        </main>
     ) : (
         <div className={cx('skeleton-container')}>
             <div className={cx('avatar-no-img', 'skeleton-animation')}></div>
