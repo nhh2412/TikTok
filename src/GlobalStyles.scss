@@ -21,6 +21,9 @@ a {
     --header-layout-height: 60px;
     --sidebar-layout-width: 356px;
     --primary: rgba(254, 44, 85, 1);
+    --animation-duration: 0.8s;
+    --circle-diameter: 20px;
+    --circle-scale-percent: 0.2;
 }
 // custom scrollbar
 html *::-webkit-scrollbar {
@@ -84,4 +87,53 @@ body {
     background-size: 200% 100%;
     background-repeat: no-repeat;
     animation: skeleton cubic-bezier(0, 0, 1, 1) 1.5s infinite;
+}
+
+// spinner loading
+#loader {
+    position: relative;
+    left: 50%;
+    top: 10px;
+}
+
+#loader::before,
+#loader::after {
+    content: '';
+    display: table-cell;
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    border-radius: 50%;
+    position: absolute;
+    animation-duration: var(--animation-duration);
+    animation-name: revolve;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    mix-blend-mode: darken;
+}
+
+#loader::before {
+    background: rgb(77, 232, 244);
+}
+
+#loader::after {
+    background: rgb(253, 62, 62);
+    animation-delay: calc(var(--animation-duration) / -2);
+}
+
+@keyframes revolve {
+    0% {
+        left: 0;
+    }
+    25% {
+        transform: scale(calc(1 + var(--circle-scale-percent)));
+    }
+    50% {
+        left: var(--circle-diameter);
+    }
+    75% {
+        transform: scale(calc(1 - var(--circle-scale-percent)));
+    }
+    100% {
+        left: 0;
+    }
 }

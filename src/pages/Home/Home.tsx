@@ -11,18 +11,33 @@ const cx = classnames.bind(styles)
 function Home() {
     const [videoList, setVideoList] = useState<any>([])
     const [loading, setLoading] = useState(false)
+    const [page, setPage] = useState(1)
+    const [totalPages, setTotalPages] = useState(1)
 
     const getVideoForYou = async () => {
         setLoading(true)
-        const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=1`)
+        const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=${page}`)
         setVideoList((prev: any) => [...prev, ...res.data.data])
+        setTotalPages(res.data.meta.pagination.total_pages)
         setLoading(false)
     }
+
     useEffect(() => {
-        getVideoForYou()
+        page <= totalPages && getVideoForYou()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [page])
+
+    const handleScroll = () => {
+        if (window.scrollY + window.innerHeight + 1 > document.body.clientHeight && !loading) {
+            setPage((prev) => prev + 1)
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    return videoList[0] ? (
+    return videoList.length > 0 ? (
         <div className={cx('main')}>
             {videoList.map((data: Video, index: number) => (
                 <VideoRecommend key={index} data={data} />

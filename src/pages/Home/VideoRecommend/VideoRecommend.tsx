@@ -4,6 +4,7 @@ import Tippy from '@tippyjs/react/headless'
 
 import icons from '~/assets/icons'
 import { Video } from '~/interface'
+import { isImage } from '~/hooks'
 
 const cx = classNames.bind(styles)
 
@@ -11,8 +12,8 @@ function VideoRecommend({ data }: { data: Video }) {
     return (
         <div className={cx('container')}>
             <div>
-                <a href="#.">
-                    <img src={data.user.avatar} alt="" width={56} height={56} className={cx('avatar')} />
+                <a href="#." className={cx('avatar')}>
+                    {isImage(data.user.avatar) && <img src={data.user.avatar} alt="" width={56} height={56} />}
                 </a>
             </div>
             <div className={cx('content')}>
@@ -27,12 +28,14 @@ function VideoRecommend({ data }: { data: Video }) {
                                 <div className={cx('mini-profile')}>
                                     <div className={cx('head')}>
                                         <a href="#." className={cx('avatar')}>
-                                            <img
-                                                src={data.user.avatar}
-                                                alt={data.user.nickname}
-                                                width={44}
-                                                height={44}
-                                            />
+                                            {isImage(data.user.avatar) && (
+                                                <img
+                                                    src={data.user.avatar}
+                                                    alt={data.user.nickname}
+                                                    width={44}
+                                                    height={44}
+                                                />
+                                            )}
                                         </a>
                                         <button onClick={() => true}>Follow</button>
                                     </div>
