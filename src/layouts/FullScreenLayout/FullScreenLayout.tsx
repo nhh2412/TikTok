@@ -10,7 +10,7 @@ const cx = classNames.bind(styles)
 const FullScreenLayout: FC<{ children: ReactElement; path: string }> = ({ children, path }) => {
     return (
         <>
-            <Header path={path} />
+            <Header type="full" />
             <div className={cx('container')}>
                 <Sidebar path={path} />
                 {children}

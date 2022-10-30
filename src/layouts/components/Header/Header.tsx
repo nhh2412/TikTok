@@ -9,7 +9,6 @@ import config from '~/config'
 
 import images from '~/assets/images'
 import icons from '~/assets/icons'
-import React from 'react'
 
 const cx = classNames.bind(styles)
 
@@ -163,7 +162,7 @@ const MENU_ITEMS = [
     {
         icon: <icons.question />,
         title: 'Phản hồi và trợ giúp',
-        to: config.routes.feedback,
+        to: '/feedback',
     },
     {
         icon: <icons.keyboard />,
@@ -182,12 +181,10 @@ const USER_MENU = [
     {
         icon: <icons.tiktok />,
         title: 'Nhận xu',
-        to: config.routes.coin,
     },
     {
         icon: <icons.setting />,
         title: 'Cài đặt',
-        to: config.routes.setting,
     },
     ...MENU_ITEMS,
     {
@@ -197,9 +194,9 @@ const USER_MENU = [
     },
 ]
 
-function Header({ path }: { path?: string }) {
+function Header({ type }: { type?: string }) {
     return (
-        <header className={cx('header', path === '/live' && 'header-full')}>
+        <header className={cx('header', type === 'full' && 'header-full')}>
             <div className={cx('wrapper')}>
                 <Link className={cx('logo')} to={config.routes.home}>
                     <images.logo />
@@ -210,14 +207,12 @@ function Header({ path }: { path?: string }) {
                 <div className={cx('act')}>
                     {currentUser ? (
                         <>
-                            <Link to={config.routes.upload}>
-                                <button className={cx('upload')}>
-                                    <div className={cx('icon-plus')}>
-                                        <icons.plus />
-                                    </div>
-                                    <span>Tải lên</span>
-                                </button>
-                            </Link>
+                            <button className={cx('upload')}>
+                                <div className={cx('icon-plus')}>
+                                    <icons.plus />
+                                </div>
+                                <span>Tải lên</span>
+                            </button>
                             <Tippy content="Tin nhắn" placement="bottom">
                                 <span className={cx('message-icon')}>
                                     <icons.message />

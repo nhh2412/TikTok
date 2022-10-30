@@ -1,7 +1,5 @@
 import Home from '~/pages/Home'
 import Following from '~/pages/Following'
-import Upload from '~/pages/Upload'
-import Feedback from '~/pages/Feedback'
 import Live from '~/pages/Live'
 import Profile from '~/pages/Profile'
 
@@ -19,8 +17,6 @@ interface Routes {
 const publicRoutes: Routes[] = [
     { path: config.routes.home, Component: Home },
     { path: config.routes.following, Component: Following },
-    { path: config.routes.feedback, Component: Feedback },
-    { path: config.routes.upload, Component: Upload },
     { path: config.routes.live, Component: Live, layout: FullScreenLayout },
     { path: config.routes.profile, Component: Profile },
 ]

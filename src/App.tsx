@@ -4,6 +4,8 @@ import DefaultLayout from '~/layouts/DefaultLayout'
 
 import './GlobalStyles.scss'
 import { FC, ReactElement } from 'react'
+import NotFound from './pages/NotFound'
+import OnyHeaderLayout from './layouts/OnyHeaderLayout'
 
 function App() {
     return (
@@ -29,6 +31,14 @@ function App() {
                             />
                         )
                     })}
+                    <Route
+                        path="*"
+                        element={
+                            <OnyHeaderLayout>
+                                <NotFound />
+                            </OnyHeaderLayout>
+                        }
+                    />
                 </Routes>
             </Router>
         </div>
