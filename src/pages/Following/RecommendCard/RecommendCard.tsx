@@ -8,7 +8,7 @@ const cx = classNames.bind(styles)
 
 function RecommendCard({ data }: { data: User }) {
     return (
-        <a href="#/">
+        <a href={`/@${data.nickname}`} target="blank">
             <div className={cx('background', 'skeleton-animation')}>
                 {isImage(data.popular_video.thumb_url) && <img src={data.popular_video.thumb_url} alt="" />}
             </div>

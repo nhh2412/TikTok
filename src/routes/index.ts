@@ -18,7 +18,7 @@ const publicRoutes: Routes[] = [
     { path: config.routes.home, Component: Home },
     { path: config.routes.following, Component: Following },
     { path: config.routes.live, Component: Live, layout: FullScreenLayout },
-    { path: config.routes.profile, Component: Profile },
+    { path: config.routes.profile, Component: Profile, layout: FullScreenLayout },
 ]
 
 // const privateRoutes = []

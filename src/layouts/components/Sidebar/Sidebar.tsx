@@ -16,7 +16,7 @@ const cx = classNames.bind(styles)
 
 function Sidebar({ path }: { path: string }) {
     return (
-        <aside className={cx('sidebar', path === '/live' && 'live-sidebar')}>
+        <aside className={cx('sidebar', (path === '/live' || path === '/@:nickname') && 's-sidebar')}>
             <SimpleBar className={cx('wrapper')}>
                 <nav className={cx('navigation')}>
                     <MenuItem title="Dành cho bạn" to={config.routes.home} icons={icons.home} />

@@ -3,10 +3,14 @@ import classnames from 'classnames/bind'
 
 import icon0 from '~/assets/images/icon0.png'
 import icons from '~/assets/icons'
+import { useEffect } from 'react'
 
 const cx = classnames.bind(styles)
 
 function NotFound() {
+    useEffect(() => {
+        document.title = 'TikTok'
+    })
     return (
         <main className={cx('main')}>
             <div className={cx('content')}>
@@ -20,7 +24,7 @@ function NotFound() {
                     <a href="/">
                         <span className={cx('icon')}>
                             <icons.play />
-                        </span>{' '}
+                        </span>
                         Xem ngay
                     </a>
                 </button>

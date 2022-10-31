@@ -66,6 +66,16 @@
 .author {
     display: flex;
     align-items: center;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        height: 56px;
+        width: 56px;
+        left: -68px;
+        bottom: -28px;
+    }
+
     &:hover .author-title {
         text-decoration: underline;
     }
