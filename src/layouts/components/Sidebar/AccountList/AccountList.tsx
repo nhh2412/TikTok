@@ -5,7 +5,7 @@ import styles from './AccountList.module.scss'
 import axios from 'axios'
 const cx = classNames.bind(styles)
 
-function AccountList() {
+function AccountList({ isMiniProfile }: { isMiniProfile: boolean }) {
     const [suggestAccounts, setSuggestAccounts] = useState([])
     const [showAllSuggestAccounts, setShowAllSuggestAccounts] = useState(false)
 
@@ -23,7 +23,13 @@ function AccountList() {
                 {suggestAccounts[0] ? (
                     <>
                         {suggestAccounts.map((data, i) => (
-                            <AccountItem data={data} index={i} key={i} isShowAll={showAllSuggestAccounts} />
+                            <AccountItem
+                                data={data}
+                                index={i}
+                                key={i}
+                                isShowAll={showAllSuggestAccounts}
+                                isMiniProfile={isMiniProfile}
+                            />
                         ))}
                         <div
                             className={cx('show-all')}

@@ -10,11 +10,11 @@ import { Link } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
-const AccountItem: FC<{ data: User; index: number; isShowAll: boolean; type?: string | boolean }> = ({
+const AccountItem: FC<{ data: User; index: number; isShowAll: boolean; isMiniProfile: boolean | boolean }> = ({
     data,
     index,
     isShowAll,
-    type,
+    isMiniProfile,
 }) => {
     return (
         <div>
@@ -23,7 +23,7 @@ const AccountItem: FC<{ data: User; index: number; isShowAll: boolean; type?: st
                 placement="bottom-start"
                 interactive
                 render={() =>
-                    type !== 's' && (
+                    isMiniProfile && (
                         <div className={cx('mini-profile')}>
                             <div className={cx('head')}>
                                 <Link to={`/@${data.nickname}`} className={cx('avatar')} target="_blank">

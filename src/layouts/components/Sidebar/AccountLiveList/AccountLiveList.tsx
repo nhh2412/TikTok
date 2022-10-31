@@ -5,17 +5,17 @@ import styles from './AccountLiveList.module.scss'
 import axios from 'axios'
 const cx = classNames.bind(styles)
 
-function AccountList() {
+function AccountList({ isMiniProfile }: { isMiniProfile: boolean }) {
     const [suggestAccounts, setSuggestAccounts] = useState([])
     const [showAllSuggestAccounts, setShowAllSuggestAccounts] = useState(false)
 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const getSuggestAccounts = async () => {
-            const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/users/suggested?page=1&per_page=20`)
+            const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/users/live?page=1&per_page=20`)
             setSuggestAccounts(res.data.data)
         }
-        // getSuggestAccounts()
+        getSuggestAccounts()
     }, [])
     return (
         <div className={cx('account-container')}>
@@ -24,7 +24,13 @@ function AccountList() {
                 {suggestAccounts[0] ? (
                     <>
                         {suggestAccounts.map((data, i) => (
-                            <AccountItem data={data} index={i} key={i} isShowAll={showAllSuggestAccounts} />
+                            <AccountItem
+                                data={data}
+                                index={i}
+                                key={i}
+                                isShowAll={showAllSuggestAccounts}
+                                isMiniProfile={isMiniProfile}
+                            />
                         ))}
                         <div
                             className={cx('show-all')}

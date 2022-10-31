@@ -7,18 +7,6 @@ import { FC } from 'react'
 const cx = classNames.bind(styles)
 
 const MenuItem: FC<{ data: Menu; onClick: () => void }> = ({ data, onClick }) => {
-    if (data.class === 'language') {
-        return (
-            <li className={cx('language')} onClick={onClick}>
-                <Link to={data.to}>
-                    <>
-                        {data.icon}
-                        <p>{data.title}</p>
-                    </>
-                </Link>
-            </li>
-        )
-    }
     return data.to ? (
         <li className={cx(data.separate && 'separate')} onClick={onClick}>
             <Link to={data.to}>
@@ -29,7 +17,7 @@ const MenuItem: FC<{ data: Menu; onClick: () => void }> = ({ data, onClick }) =>
             </Link>
         </li>
     ) : (
-        <li className={cx(data.separate && 'separate')} onClick={onClick}>
+        <li className={cx(data.separate && 'separate', data.class)} onClick={onClick}>
             <>
                 {data.icon}
                 <p>{data.title}</p>

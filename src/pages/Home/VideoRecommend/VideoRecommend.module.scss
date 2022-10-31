@@ -98,9 +98,12 @@
 .video-wrapper {
     display: flex;
     align-items: flex-end;
+
     video {
-        height: calc(450px + (100vw - 768px) / 1152 * 100);
-        width: 290px;
+        height: 47%;
+        width: 47%;
+        min-width: 292px;
+        min-height: 292px;
         margin-right: 20px;
         border-radius: 8px;
     }

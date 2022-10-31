@@ -8,27 +8,61 @@ function Footer() {
     return (
         <footer className={cx('footer')}>
             <div className={cx('row')}>
-                <a href="#.">Giới thiệu</a>
-                <a href="#.">TikTok Browse</a>
-                <a href="#.">Bảng tin</a>
-                <a href="#.">Liên hệ</a>
-                <a href="#.">Sự nghiệp</a>
-                <a href="#.">ByteDance</a>
+                <a href="a" target="_blank">
+                    Giới thiệu
+                </a>
+                <a href="a" target="_blank">
+                    TikTok Browse
+                </a>
+                <a href="a" target="_blank">
+                    Bảng tin
+                </a>
+                <a href="a" target="_blank">
+                    Liên hệ
+                </a>
+                <a href="a" target="_blank">
+                    Sự nghiệp
+                </a>
+                <a href="a" target="_blank">
+                    ByteDance
+                </a>
             </div>
             <div className={cx('row')}>
-                <a href="#.">TikTok for Good</a>
-                <a href="#.">Quảng cáo</a>
-                <a href="#.">Developers</a>
-                <a href="#.">Transparency</a>
-                <a href="#.">TikTok Rewards</a>
+                <a href="a" target="_blank">
+                    TikTok for Good
+                </a>
+                <a href="a" target="_blank">
+                    Quảng cáo
+                </a>
+                <a href="a" target="_blank">
+                    Developers
+                </a>
+                <a href="a" target="_blank">
+                    Transparency
+                </a>
+                <a href="a" target="_blank">
+                    TikTok Rewards
+                </a>
             </div>
             <div className={cx('row')}>
-                <a href="#.">Trợ giúp</a>
-                <a href="#.">An toàn</a>
-                <a href="#.">Điều khoản</a>
-                <a href="#.">Quyền riêng tư</a>
-                <a href="#.">Creator Portal</a>
-                <a href="#.">Hướng dẫn Cộng đồng</a>
+                <a href="a" target="_blank">
+                    Trợ giúp
+                </a>
+                <a href="a" target="_blank">
+                    An toàn
+                </a>
+                <a href="a" target="_blank">
+                    Điều khoản
+                </a>
+                <a href="a" target="_blank">
+                    Quyền riêng tư
+                </a>
+                <a href="a" target="_blank">
+                    Creator Portal
+                </a>
+                <a href="a" target="_blank">
+                    Hướng dẫn Cộng đồng
+                </a>
             </div>
             <div className={cx('footer-more')}>
                 <Tippy
@@ -37,7 +71,9 @@ function Footer() {
                     interactive
                     render={() => (
                         <div className={cx('more-popup')}>
-                            <a href="#.">NGUYÊN TẮC THỰC THI PHÁP LUẬT CỦA TIKTOK</a>
+                            <a href="a" target="_blank">
+                                NGUYÊN TẮC THỰC THI PHÁP LUẬT CỦA TIKTOK
+                            </a>
                             <span className={cx('arrow')}>
                                 <icons.arrow />
                             </span>

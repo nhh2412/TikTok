@@ -20,14 +20,14 @@ function NotFound() {
                 </h1>
                 <p>Không thể tìm thấy trang này</p>
                 <h2>Xem những video thịnh hành khác trên TikTok</h2>
-                <button>
-                    <a href="/">
+                <a href="/">
+                    <button>
                         <span className={cx('icon')}>
                             <icons.play />
                         </span>
                         Xem ngay
-                    </a>
-                </button>
+                    </button>
+                </a>
             </div>
         </main>
     )

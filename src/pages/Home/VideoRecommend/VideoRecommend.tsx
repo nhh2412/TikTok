@@ -6,6 +6,7 @@ import icons from '~/assets/icons'
 import { Video } from '~/interface'
 import { isImage } from '~/hooks'
 import { Link } from 'react-router-dom'
+import VideoItem from './VideoItem'
 
 const cx = classNames.bind(styles)
 
@@ -82,29 +83,7 @@ function VideoRecommend({ data }: { data: Video }) {
                         </Link>
                     </h4>
                 </div>
-                <div className={cx('video-wrapper')}>
-                    <video src={data.file_url}></video>
-                    <div className={cx('action')}>
-                        <div className={cx('icon')} onClick={() => true}>
-                            <button>
-                                <icons.heart />
-                            </button>
-                            <strong>{data.likes_count}</strong>
-                        </div>
-                        <div className={cx('icon')} onClick={() => true}>
-                            <button>
-                                <icons.comment />
-                            </button>
-                            <strong>{data.comments_count}</strong>
-                        </div>
-                        <div className={cx('icon')} onClick={() => true}>
-                            <button>
-                                <icons.share />
-                            </button>
-                            <strong>{data.shares_count}</strong>
-                        </div>
-                    </div>
-                </div>
+                <VideoItem data={data} />
             </div>
             <button className={cx('follow-btn')} onClick={() => true}>
                 Follow

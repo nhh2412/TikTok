@@ -50,4 +50,12 @@
     .show-all {
         display: none;
     }
+    .account-load {
+        .info {
+            display: none;
+        }
+        .avatar-no-img {
+            margin-right: 0;
+        }
+    }
 }

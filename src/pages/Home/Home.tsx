@@ -18,21 +18,30 @@ function Home() {
         setLoading(true)
         const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=${page}`)
         setVideoList((prev: any) => [...prev, ...res.data.data])
-        setTotalPages(res.data.meta.pagination.total_pages)
         setTimeout(() => setLoading(false), 2000)
     }
 
+    const getVideoForYouFirst = async () => {
+        const res = await axios.get(`https://tiktok.fullstack.edu.vn/api/videos?type=for-you&page=1`)
+        setVideoList(res.data.data)
+        setTotalPages(res.data.meta.pagination.total_pages)
+    }
+
     useEffect(() => {
-        !loading && page <= totalPages && getVideoForYou()
+        page !== 1 && !loading && page <= totalPages && getVideoForYou()
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page])
 
     useEffect(() => {
+        getVideoForYouFirst()
+
         const handleScroll = () => {
             if (window.scrollY + window.innerHeight - 59 >= document.body.clientHeight && !loading) {
                 setPage((prev) => prev + 1)
             }
         }
+
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
         // eslint-disable-next-line react-hooks/exhaustive-deps

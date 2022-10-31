@@ -11,12 +11,28 @@ import AccountList from './AccountList/AccountList'
 import Discover from './Discover'
 import Footer from './Footer'
 import AccountLiveList from './AccountLiveList'
+import { useEffect, useState } from 'react'
+import React from 'react'
 
 const cx = classNames.bind(styles)
 
 function Sidebar({ path }: { path: string }) {
+    const sidebar = React.useRef<HTMLDivElement>(null)
+    const [isMiniProfile, setIsMiniProfile] = useState<boolean>(true)
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            if (sidebar.current && sidebar.current?.clientWidth < 250) {
+                setIsMiniProfile(false)
+            } else setIsMiniProfile(true)
+        })
+        if (sidebar.current && sidebar.current?.clientWidth < 250) {
+            setIsMiniProfile(false)
+        } else setIsMiniProfile(true)
+    }, [])
+
     return (
-        <aside className={cx('sidebar', (path === '/live' || path === '/@:nickname') && 's-sidebar')}>
+        <aside className={cx('sidebar', (path === '/live' || path === '/@:nickname') && 's-sidebar')} ref={sidebar}>
             <SimpleBar className={cx('wrapper')}>
                 <nav className={cx('navigation')}>
                     <MenuItem title="Dành cho bạn" to={config.routes.home} icons={icons.home} />
@@ -29,12 +45,12 @@ function Sidebar({ path }: { path: string }) {
                 </div>
                 {path !== '/following' && path !== '/live' && (
                     <div className={cx('account-list', 'separate')}>
-                        <AccountList />
+                        <AccountList isMiniProfile={isMiniProfile} />
                     </div>
                 )}
                 {path === '/live' && (
                     <div className={cx('account-list', 'separate')}>
-                        <AccountLiveList />
+                        <AccountLiveList isMiniProfile={isMiniProfile} />
                     </div>
                 )}
                 {path !== '/live' && (

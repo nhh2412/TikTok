@@ -23,6 +23,13 @@ export interface Video {
     user: User
     music: string
     thumb_url: string
+    meta: {
+        playtime_seconds: number
+        video: {
+            resolution_x: number
+            resolution_y: number
+        }
+    }
 }
 
 export interface Menu {

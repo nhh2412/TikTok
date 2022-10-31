@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind'
 import styles from './Menu.module.scss'
 import Tippy from '@tippyjs/react/headless'
-import { useState } from 'react'
+import { ReactElement, useState } from 'react'
 
 import icons from '~/assets/icons'
 
@@ -10,12 +10,12 @@ import Header from './Header'
 
 const cx = classNames.bind(styles)
 
-function Menu({ children, items = [] }) {
-    const [history, setHistory] = useState([{ data: items }])
+function Menu({ children, items = [] }: { children: ReactElement; items: any }) {
+    const [history, setHistory] = useState<{ data: any; title?: string }[]>([{ data: items }])
     const current = history[history.length - 1]
 
     const renderItems = () =>
-        current.data.map((item, index) => {
+        current.data.map((item: any, index: number) => {
             return (
                 <MenuItem
                     key={index}
@@ -35,7 +35,7 @@ function Menu({ children, items = [] }) {
 
     const renderResult = () => (
         <div className={cx('menu')}>
-            {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+            {history.length > 1 && current.title && <Header title={current.title} onBack={handleBack} />}
             <ul>{renderItems()}</ul>
             <span className={cx('arrow')}>
                 <icons.arrow />

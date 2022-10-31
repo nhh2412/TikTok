@@ -28,12 +28,17 @@
         margin: 40px auto 0px;
     }
 
+    a {
+        display: block;
+        min-width: 168px;
+        width: 360px;
+        margin: auto;
+    }
+
     button {
         border-radius: 4px;
         color: rgb(255, 255, 255);
         background-color: rgb(254, 44, 85);
-        min-width: 168px;
-        min-height: 48px;
         font-size: 18px;
         line-height: 25px;
         font-weight: 600;
@@ -41,8 +46,10 @@
         justify-content: center;
         padding: 6px 8px;
         margin: 24px auto 0px;
-        width: 360px;
         display: flex;
+        min-width: 168px;
+        min-height: 48px;
+        width: 360px;
 
         &:hover {
             background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), var(--primary);
