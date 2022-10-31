@@ -23,6 +23,7 @@ const icons = {
     heart: require('./button/heart').default,
     comment: require('./button/comment').default,
     share: require('./button/share').default,
+    play: require('./button/play').default,
 
     // menu
     mailbox: require('./menu/mailbox').default,
