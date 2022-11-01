@@ -9,10 +9,11 @@ import axios from 'axios'
 const cx = classnames.bind(styles)
 
 function Home() {
+    const [volume, setVolume] = useState<number>(0)
     const [videoList, setVideoList] = useState<any>([])
-    const [loading, setLoading] = useState(false)
-    const [page, setPage] = useState(1)
-    const [totalPages, setTotalPages] = useState(1)
+    const [loading, setLoading] = useState<boolean>(false)
+    const [page, setPage] = useState<number>(1)
+    const [totalPages, setTotalPages] = useState<number>(1)
 
     const getVideoForYou = async () => {
         setLoading(true)
@@ -49,8 +50,8 @@ function Home() {
 
     return videoList.length > 0 ? (
         <main className={cx('main')}>
-            {videoList.map((data: Video) => (
-                <VideoRecommend key={data.id} data={data} />
+            {videoList.map((data: Video, index: number) => (
+                <VideoRecommend key={data.id} data={data} volume={volume} setVolume={setVolume} />
             ))}
             <div id="loader"></div>
         </main>

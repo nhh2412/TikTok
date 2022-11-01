@@ -1,0 +1,91 @@
+// mini profile
+.mini-profile {
+    width: 320px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+    border-radius: 8px;
+
+    img {
+        border-radius: 50%;
+    }
+
+    .nickname {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+
+        h4 {
+            display: inline;
+        }
+    }
+
+    .full-name {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .stat {
+        margin-top: 8px;
+        span {
+            color: rgba(22, 24, 35, 0.75);
+        }
+        .count {
+            font-weight: 700;
+            margin-right: 6px;
+            font-size: 17px;
+            color: rgba(22, 24, 35, 1);
+            line-height: 20px;
+        }
+
+        .follower {
+            margin-right: 12px;
+            font-size: 17px;
+            line-height: 20px;
+        }
+    }
+
+    .bio {
+        font-size: 14px;
+        line-height: 20px;
+        padding-top: 16px;
+        margin-top: 16px;
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    .avatar {
+        display: block;
+        width: 44px;
+        height: 44px;
+    }
+
+    button {
+        border-radius: 4px;
+        color: var(--primary);
+        border-color: var(--primary);
+        border: 1px solid var(--primary);
+        background: #fff;
+        min-width: 106px;
+        min-height: 28px;
+        font-size: 16px;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 8px;
+        &:hover {
+            background-color: rgba(254, 44, 85, 0.06);
+        }
+        &:active {
+            background-color: rgba(254, 44, 85, 0.16);
+        }
+    }
+}

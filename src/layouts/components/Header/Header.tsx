@@ -3,7 +3,7 @@ import styles from './Header.module.scss'
 import { Link } from 'react-router-dom'
 import Tippy from '@tippyjs/react/headless'
 
-import Menu from '~/layouts/components/Header/Menu'
+import Menu from '~/components/popper/Menu'
 import Search from './Search'
 import config from '~/config'
 

@@ -7,6 +7,15 @@ const icons = {
     KaKaoTalk: require('./social/KaKaoTalk').default,
     LINE: require('./social/LINE').default,
     twitter: require('./social/twitter').default,
+    tag: require('./social/tag').default,
+    email: require('./social/email').default,
+    link: require('./social/link').default,
+    LinkedIn: require('./social/LinkedIn').default,
+    Pinterest: require('./social/Pinterest').default,
+    plane: require('./social/plane').default,
+    Reddit: require('./social/Reddit').default,
+    Telegram: require('./social/Telegram').default,
+    WhatsApp: require('./social/WhatsApp').default,
 
     // deco
     arrow: require('./deco/arrow').default,
@@ -24,6 +33,10 @@ const icons = {
     comment: require('./button/comment').default,
     share: require('./button/share').default,
     play: require('./button/play').default,
+    pause: require('./button/pause').default,
+    arrowDown: require('./button/arrowDown').default,
+    loudspeaker: require('./button/loudspeaker').default,
+    loudspeakerMute: require('./button/loudspeakerMute').default,
 
     // menu
     mailbox: require('./menu/mailbox').default,

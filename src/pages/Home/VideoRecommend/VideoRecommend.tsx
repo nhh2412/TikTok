@@ -6,11 +6,20 @@ import icons from '~/assets/icons'
 import { Video } from '~/interface'
 import { isImage } from '~/hooks'
 import { Link } from 'react-router-dom'
-import VideoItem from './VideoItem'
+import VideoItem from './VideoContainer'
+import MiniProfile from '~/components/popper/MiniProfile'
 
 const cx = classNames.bind(styles)
 
-function VideoRecommend({ data }: { data: Video }) {
+function VideoRecommend({
+    data,
+    setVolume,
+    volume,
+}: {
+    data: Video
+    volume: number
+    setVolume: (arg0: number) => void
+}) {
     return (
         <div className={cx('container')}>
             <div>
@@ -26,41 +35,7 @@ function VideoRecommend({ data }: { data: Video }) {
                             offset={[-75, 35]}
                             placement="bottom-start"
                             interactive
-                            render={() => (
-                                <div className={cx('mini-profile')}>
-                                    <div className={cx('head')}>
-                                        <Link to={`/@${data.user.nickname}`} className={cx('avatar')}>
-                                            {isImage(data.user.avatar) && (
-                                                <img
-                                                    src={data.user.avatar}
-                                                    alt={data.user.nickname}
-                                                    width={44}
-                                                    height={44}
-                                                />
-                                            )}
-                                        </Link>
-                                        <button onClick={() => true}>Follow</button>
-                                    </div>
-                                    <Link to={`/@${data.user.nickname}`} className={cx('nickname')}>
-                                        <h4>{data.user.nickname}</h4> {data.user.tick && <icons.check />}
-                                    </Link>
-                                    <br />
-                                    <Link to={`/@${data.user.nickname}`} className={cx('full-name')}>
-                                        <h5>
-                                            {data.user.first_name} {data.user.last_name}
-                                        </h5>
-                                    </Link>
-                                    <div className={cx('stat')}>
-                                        <span className={cx('count')}>{data.user.followers_count}</span>
-                                        <span className={cx('follower')}>Follower</span>
-                                        <span className={cx('count')}>{data.user.likes_count}</span>
-                                        <span>Thích</span>
-                                    </div>
-                                    <div className={cx('bio')}>
-                                        <p>{data.user.bio}</p>
-                                    </div>
-                                </div>
-                            )}
+                            render={() => MiniProfile.HomePage(data)}
                         >
                             <Link to={`/@${data.user.nickname}`} className={cx('author')}>
                                 <h3 className={cx('author-title')}>
@@ -83,7 +58,7 @@ function VideoRecommend({ data }: { data: Video }) {
                         </Link>
                     </h4>
                 </div>
-                <VideoItem data={data} />
+                <VideoItem data={data} volume={volume} setVolume={setVolume} />
             </div>
             <button className={cx('follow-btn')} onClick={() => true}>
                 Follow

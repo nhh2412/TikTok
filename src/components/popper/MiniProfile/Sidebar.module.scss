@@ -1,0 +1,89 @@
+.avatar {
+    img {
+        border-radius: 50%;
+    }
+    margin-right: 12px;
+    height: 32px;
+}
+
+// mini profile
+.mini-profile {
+    width: 320px;
+    box-sizing: border-box;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+    color: rgba(22, 24, 35, 1);
+    border-radius: 8px;
+
+    .nickname {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+
+        h4 {
+            display: inline;
+        }
+    }
+
+    .full-name {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .stat {
+        margin-top: 8px;
+        span {
+            color: rgba(22, 24, 35, 0.75);
+        }
+        .count {
+            font-weight: 700;
+            margin-right: 6px;
+            font-size: 17px;
+            color: rgba(22, 24, 35, 1);
+            line-height: 20px;
+        }
+
+        .follower {
+            margin-right: 12px;
+            font-size: 17px;
+            line-height: 20px;
+        }
+    }
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    .avatar {
+        display: block;
+        height: 100%;
+    }
+
+    button {
+        border-radius: 4px;
+        color: rgb(255, 255, 255);
+        background-color: var(--primary);
+        min-width: 106px;
+        min-height: 28px;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 8px;
+
+        &:hover {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), var(--primary);
+        }
+
+        &:active {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)), var(--primary);
+        }
+    }
+}
