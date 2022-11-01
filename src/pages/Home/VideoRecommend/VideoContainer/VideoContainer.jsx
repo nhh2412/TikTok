@@ -12,12 +12,16 @@ function VideoItem({ data, setVolume, volume }) {
     const [isShowAllShare, setIsShowAllShare] = useState(false)
 
     const videoRef = useRef()
+    const circleRef = useRef()
+    const lineRef = useRef()
+
     const options = {
         root: null,
         rootMargin: '-200px 0px',
         threshold: 0.3,
     }
     const isVisible = useElementOnScreen(options, videoRef)
+
     const onVideoClick = () => {
         if (playing && videoRef.current) {
             videoRef.current.pause()
@@ -27,6 +31,8 @@ function VideoItem({ data, setVolume, volume }) {
             setPlaying(!playing)
         }
     }
+
+    // autoplay scroll
     useEffect(() => {
         if (isVisible && videoRef.current) {
             if (!playing) {
@@ -48,7 +54,12 @@ function VideoItem({ data, setVolume, volume }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isVisible])
 
-    useEffect(() => {}, [volume])
+    // change volume
+    useEffect(() => {
+        videoRef.current.volume = volume
+        lineRef.current.style.transform = `scaleY(${volume})`
+        circleRef.current.style.transform = `translateY(-${volume * 36}px)`
+    }, [volume])
 
     return (
         <div className={cx('video-container')}>
@@ -68,8 +79,8 @@ function VideoItem({ data, setVolume, volume }) {
                     </button>
                     <div className={cx('volume-controller-container')}>
                         <div className={cx('volume-bar')}>
-                            <div className={cx('volume-circle')}></div>
-                            <div className={cx('volume-line')}></div>
+                            <div ref={circleRef}></div>
+                            <div ref={lineRef} className={cx('volume-line')}></div>
                         </div>
                     </div>
                     <button
@@ -77,15 +88,10 @@ function VideoItem({ data, setVolume, volume }) {
                         onClick={() => {
                             setVolume((prev) => {
                                 if (volume > 0) {
-                                    console.log(0)
                                     return 0
                                 } else if (prev === 0) {
-                                    console.log(0.8)
-
                                     return 0.8
                                 } else {
-                                    console.log(prev)
-
                                     return prev
                                 }
                             })
