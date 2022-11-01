@@ -3,17 +3,15 @@ import { useElementOnScreen } from '~/hooks'
 import icons from '~/assets/icons'
 import classNames from 'classnames/bind'
 import styles from './VideoContainer.module.scss'
-import { Video } from '~/interface'
 import Tippy from '@tippyjs/react/headless'
 import Share from '~/components/popper/Share'
 const cx = classNames.bind(styles)
 
-function VideoItem({ data, setVolume, volume }: { data: Video; volume: number; setVolume: (arg0: number) => void }) {
-    const [playing, setPlaying] = useState<boolean>(false)
-    const [muted, setMuted] = useState<boolean>(false)
-    const [isShowAllShare, setIsShowAllShare] = useState<boolean>(false)
+function VideoItem({ data, setVolume, volume }) {
+    const [playing, setPlaying] = useState(false)
+    const [isShowAllShare, setIsShowAllShare] = useState(false)
 
-    const videoRef = useRef<any>()
+    const videoRef = useRef()
     const options = {
         root: null,
         rootMargin: '-200px 0px',
@@ -34,13 +32,9 @@ function VideoItem({ data, setVolume, volume }: { data: Video; volume: number; s
             if (!playing) {
                 const promise = videoRef.current.play()
                 if (promise !== undefined) {
-                    promise
-                        .then(() => {
-                            setPlaying(true)
-                        })
-                        .catch(() => {
-                            setMuted(true)
-                        })
+                    promise.then(() => {
+                        setPlaying(true)
+                    })
                 }
             }
         } else {
@@ -52,14 +46,22 @@ function VideoItem({ data, setVolume, volume }: { data: Video; volume: number; s
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isVisible, muted])
+    }, [isVisible])
 
     useEffect(() => {}, [volume])
 
     return (
         <div className={cx('video-container')}>
             <div className={cx('video-wrapper')}>
-                <video src={data.file_url} loop preload="true" ref={videoRef} muted={muted}></video>
+                <video
+                    src={data.file_url}
+                    loop
+                    preload="true"
+                    ref={videoRef}
+                    onClick={() => {
+                        setVolume(0)
+                    }}
+                ></video>
                 <div className={cx('video-action')}>
                     <button className={cx('playing')} onClick={onVideoClick}>
                         {!playing ? <icons.play /> : <icons.pause />}
@@ -70,8 +72,26 @@ function VideoItem({ data, setVolume, volume }: { data: Video; volume: number; s
                             <div className={cx('volume-line')}></div>
                         </div>
                     </div>
-                    <button className={cx('loud-speaker', muted && 'muted')} onClick={() => setMuted(!muted)}>
-                        {muted === false ? <icons.loudspeaker /> : <icons.loudspeakerMute />}
+                    <button
+                        className={cx('loud-speaker', volume === 0 && 'muted')}
+                        onClick={() => {
+                            setVolume((prev) => {
+                                if (volume > 0) {
+                                    console.log(0)
+                                    return 0
+                                } else if (prev === 0) {
+                                    console.log(0.8)
+
+                                    return 0.8
+                                } else {
+                                    console.log(prev)
+
+                                    return prev
+                                }
+                            })
+                        }}
+                    >
+                        {volume !== 0 ? <icons.loudspeaker /> : <icons.loudspeakerMute />}
                     </button>
                 </div>
             </div>
