@@ -4,6 +4,7 @@ import classnames from 'classnames/bind'
 const cx = classnames.bind(styles)
 
 function Live() {
+    document.title = 'TikTok LIVE | TikTok'
     return (
         <main className={cx('main')}>
             <div className={cx('live-room')}>

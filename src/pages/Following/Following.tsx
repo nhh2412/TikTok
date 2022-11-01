@@ -10,6 +10,7 @@ const cx = classnames.bind(styles)
 function Following() {
     const [suggestAccounts, setSuggestAccounts] = useState<User[]>([])
     const [loading, setLoading] = useState(true)
+    document.title = 'Đang follow - Xem video từ những nhà sáng tạo mà bạn follow | tiktok'
 
     useEffect(() => {
         const getSuggestAccounts = async () => {

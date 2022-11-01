@@ -64,6 +64,12 @@ function VideoItem({ data, setVolume, volume }: { data: Video; volume: number; s
                     <button className={cx('playing')} onClick={onVideoClick}>
                         {!playing ? <icons.play /> : <icons.pause />}
                     </button>
+                    <div className={cx('volume-controller-container')}>
+                        <div className={cx('volume-bar')}>
+                            <div className={cx('volume-circle')}></div>
+                            <div className={cx('volume-line')}></div>
+                        </div>
+                    </div>
                     <button className={cx('loud-speaker', muted && 'muted')} onClick={() => setMuted(!muted)}>
                         {muted === false ? <icons.loudspeaker /> : <icons.loudspeakerMute />}
                     </button>

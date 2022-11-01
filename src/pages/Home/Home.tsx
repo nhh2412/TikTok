@@ -9,6 +9,7 @@ import axios from 'axios'
 const cx = classnames.bind(styles)
 
 function Home() {
+    document.title = 'TikTok - Make Your Day'
     const [volume, setVolume] = useState<number>(0)
     const [videoList, setVideoList] = useState<any>([])
     const [loading, setLoading] = useState<boolean>(false)
