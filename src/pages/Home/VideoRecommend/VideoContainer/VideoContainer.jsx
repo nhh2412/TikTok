@@ -79,7 +79,7 @@ function VideoItem({ data, setVolume, volume }) {
                     </button>
                     <div className={cx('volume-controller-container')}>
                         <div className={cx('volume-bar')}>
-                            <div ref={circleRef}></div>
+                            <div ref={circleRef} className={cx('volume-circle')}></div>
                             <div ref={lineRef} className={cx('volume-line')}></div>
                         </div>
                     </div>

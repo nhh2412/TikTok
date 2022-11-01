@@ -10,7 +10,7 @@ const cx = classnames.bind(styles)
 
 function Home() {
     document.title = 'TikTok - Make Your Day'
-    const [volume, setVolume] = useState<number>(0)
+    const [volume, setVolume] = useState<number>(1)
     const [videoList, setVideoList] = useState<any>([])
     const [loading, setLoading] = useState<boolean>(false)
     const [page, setPage] = useState<number>(1)
