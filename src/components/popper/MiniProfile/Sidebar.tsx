@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { isImage } from '~/hooks'
+import { isImage } from '~/functions'
 import { User } from '~/interface'
 import styles from './Sidebar.module.scss'
 import classNames from 'classnames/bind'

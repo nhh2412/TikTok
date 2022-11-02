@@ -1,7 +1,7 @@
 import styles from './RecommendCard.module.scss'
 import classNames from 'classnames/bind'
 import { User } from '~/interface'
-import { isImage } from '~/hooks'
+import { isImage } from '~/functions'
 import icons from '~/assets/icons'
 
 const cx = classNames.bind(styles)

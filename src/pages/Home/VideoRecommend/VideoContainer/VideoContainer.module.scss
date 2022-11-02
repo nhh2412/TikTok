@@ -8,13 +8,15 @@
 
         &:hover .video-action {
             .playing,
-            .loud-speaker {
+            .loud-speaker,
+            .video-controller-container {
                 opacity: 1;
             }
         }
         video {
             border-radius: 8px;
             height: 100%;
+            cursor: pointer;
             width: 100%;
         }
     }
@@ -118,8 +120,8 @@
             background-color: rgba(255, 255, 255, 0.5);
             left: 11px;
             top: 8px;
-            border-radius: 4px;
             cursor: pointer;
+            border-radius: 4px;
 
             .volume-circle {
                 width: 12px;
@@ -138,6 +140,67 @@
                 background: #fff;
             }
         }
+    }
+}
+
+.video-controller-container {
+    display: flex;
+    position: absolute;
+    bottom: 12px;
+    color: #fff;
+    height: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease 0s;
+    width: 100%;
+    align-items: center;
+    padding-inline: 12px;
+
+    .seek-bar-container {
+        width: 100%;
+        height: 16px;
+        flex: 1 1 auto;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        left: 0px;
+
+        .seek-bar-circle {
+            display: none;
+            width: 12px;
+            height: 12px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 12px;
+            top: -4px;
+
+            &:focus-visible {
+                outline: none;
+            }
+        }
+
+        .seek-bar-line:first-child {
+            height: 2px;
+            background: #fff;
+        }
+    }
+    &:hover {
+        .seek-bar-circle {
+            display: block;
+        }
+        .seek-bar-line:first-child,
+        .seek-bar-container {
+            height: 4px;
+        }
+    }
+
+    .time-container {
+        flex: 0 0 64px;
+        max-width: 64px;
+        margin-inline-start: 8px;
+        font-size: 10px;
+        line-height: 16px;
+        color: rgb(255, 255, 255);
+        text-align: end;
+        white-space: nowrap;
     }
 }
 

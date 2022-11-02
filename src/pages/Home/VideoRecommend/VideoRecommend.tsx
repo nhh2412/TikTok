@@ -4,7 +4,7 @@ import Tippy from '@tippyjs/react/headless'
 
 import icons from '~/assets/icons'
 import { Video } from '~/interface'
-import { isImage } from '~/hooks'
+import { isImage } from '~/functions'
 import { Link } from 'react-router-dom'
 import VideoItem from './VideoContainer'
 import MiniProfile from '~/components/popper/MiniProfile'

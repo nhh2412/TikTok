@@ -2,7 +2,7 @@ import classNames from 'classnames/bind'
 import styles from './AccountItem.module.scss'
 import { Link } from 'react-router-dom'
 
-import { isImage } from '~/hooks'
+import { isImage } from '~/functions'
 import icons from '~/assets/icons'
 import { User } from '~/interface'
 

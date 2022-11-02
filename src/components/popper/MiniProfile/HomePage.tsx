@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { isImage } from '~/hooks'
+import { isImage } from '~/functions'
 import classNames from 'classnames/bind'
 import styles from './HomePage.module.scss'
 import { Video } from '~/interface'

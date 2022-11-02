@@ -3,7 +3,7 @@ import classNames from 'classnames/bind'
 import Tippy from '@tippyjs/react/headless'
 
 import icons from '~/assets/icons'
-import { isImage } from '~/hooks'
+import { isImage } from '~/functions'
 import { User } from '~/interface'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'

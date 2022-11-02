@@ -6,15 +6,20 @@ import styles from './VideoContainer.module.scss'
 import Tippy from '@tippyjs/react/headless'
 import Share from '~/components/popper/Share'
 import ReactSlider from 'react-slider'
+import { convertMinute } from '~/functions'
 
 const cx = classNames.bind(styles)
 
 function VideoItem({ data, setVolume, volume, prevVolume, setPrevVolume }) {
     const [playing, setPlaying] = useState(false)
     const [isShowAllShare, setIsShowAllShare] = useState(false)
+    const [isShowVideoController, setIsShowVideoController] = useState(false)
+    const [currentVideoTime, setCurrentVideoTime] = useState(0)
+    const [time, setTime] = useState(false)
 
     let type
     const ratioVideo = data.meta.video.resolution_x / data.meta.video.resolution_y
+    const totalTimeVideo = data.meta.playtime_seconds
 
     const videoRef = useRef()
 
@@ -25,6 +30,13 @@ function VideoItem({ data, setVolume, volume, prevVolume, setPrevVolume }) {
     } else {
         type = 'equal'
     }
+
+    useEffect(() => {
+        if (totalTimeVideo > 30) {
+            setIsShowVideoController(true)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const options = {
         root: null,
@@ -70,6 +82,18 @@ function VideoItem({ data, setVolume, volume, prevVolume, setPrevVolume }) {
         videoRef.current.volume = volume
     }, [volume])
 
+    // seek bar video
+    useEffect(() => {
+        videoRef.current.currentTime = currentVideoTime
+    }, [currentVideoTime])
+
+    useEffect(() => {
+        if (playing) {
+            setTimeout(() => setTime(!time), 0)
+        } else {
+        }
+    }, [time, playing])
+
     return (
         <div className={cx('video-container')}>
             <div className={cx('video-wrapper', type)}>
@@ -106,6 +130,22 @@ function VideoItem({ data, setVolume, volume, prevVolume, setPrevVolume }) {
                             }}
                         />
                     </div>
+                    {isShowVideoController && (
+                        <div className={cx('video-controller-container')}>
+                            <ReactSlider
+                                className={cx('seek-bar-container')}
+                                thumbClassName={cx('seek-bar-circle')}
+                                trackClassName={cx('seek-bar-line')}
+                                value={(videoRef.current.currentTime / totalTimeVideo) * 100}
+                                onChange={(a) => {
+                                    setCurrentVideoTime((a * totalTimeVideo) / 100)
+                                }}
+                            />
+                            <div className={cx('time-container')}>
+                                {convertMinute(videoRef.current.currentTime)}/{data.meta.playtime_string}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className={cx('action')}>
