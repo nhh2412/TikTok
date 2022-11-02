@@ -17,7 +17,7 @@ function VideoItem({ data, setVolume, volume, prevVolume, setPrevVolume }) {
     const ratioVideo = data.meta.video.resolution_x / data.meta.video.resolution_y
 
     const videoRef = useRef()
-    console.log(ratioVideo)
+
     if (ratioVideo < 0.6) {
         type = 'vertical'
     } else if (ratioVideo > 1.25) {

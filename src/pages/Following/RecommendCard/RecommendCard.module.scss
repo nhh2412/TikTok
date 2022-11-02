@@ -1,12 +1,31 @@
+.card:hover {
+    video {
+        display: block;
+    }
+}
+
 .background {
     border-radius: 8px;
     background-color: rgba(22, 24, 35, 0.06);
+    width: 226px;
     height: 302px;
+    position: relative;
     img {
         border-radius: 8px;
         object-fit: cover;
         width: 226px;
         height: 302px;
+    }
+
+    video {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 226px;
+        height: 302px;
+        border-radius: 8px;
+        object-fit: cover;
     }
 }
 

@@ -8,9 +8,10 @@ const cx = classNames.bind(styles)
 
 function RecommendCard({ data }: { data: User }) {
     return (
-        <a href={`/@${data.nickname}`} target="blank">
+        <a href={`/@${data.nickname}`} target="blank" className={cx('card')}>
             <div className={cx('background', 'skeleton-animation')}>
                 {isImage(data.popular_video.thumb_url) && <img src={data.popular_video.thumb_url} alt="" />}
+                <video src={data.popular_video.file_url} className={cx('video')} muted={true} loop autoPlay></video>
             </div>
             <div className={cx('info')}>
                 <span className={cx('avatar')}>
@@ -26,7 +27,13 @@ function RecommendCard({ data }: { data: User }) {
                 <h6 className={cx('nickname')}>
                     {data.nickname} {data.tick && <icons.check />}
                 </h6>
-                <button>Follow</button>
+                <button
+                    onClick={(e) => {
+                        e.preventDefault()
+                    }}
+                >
+                    Follow
+                </button>
             </div>
         </a>
     )
