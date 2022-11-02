@@ -12,8 +12,7 @@
 
         &:hover .video-action {
             .playing,
-            .loud-speaker,
-            .volume-controller-container {
+            .loud-speaker {
                 opacity: 1;
             }
         }
@@ -83,6 +82,10 @@
         transition: opacity 0.3s;
         bottom: 26px;
         right: 16px;
+
+        &:hover ~ .volume-controller-container {
+            opacity: 1;
+        }
     }
 
     .muted {
@@ -90,13 +93,15 @@
     }
 
     .volume-controller-container {
-        transition: opacity 0.3s;
         opacity: 0;
+        &:hover,
+        &:active {
+            opacity: 1;
+        }
         width: 24px;
         height: 64px;
-        display: block;
         position: absolute;
-        bottom: 70px;
+        bottom: 66px;
         right: 24px;
         background: rgba(22, 24, 35, 0.34);
         border-radius: 32px;
@@ -105,36 +110,26 @@
             width: 2px;
             height: 48px;
             background-color: rgba(255, 255, 255, 0.5);
-            position: absolute;
             left: 11px;
             top: 8px;
-            bottom: 8px;
-            cursor: pointer;
             border-radius: 4px;
+            cursor: pointer;
 
             .volume-circle {
                 width: 12px;
                 height: 12px;
                 background-color: rgb(255, 255, 255);
                 border-radius: 12px;
-                position: absolute;
                 left: -5px;
-                bottom: 0;
-                cursor: pointer;
-                z-index: 1;
-                transform: translateY(0);
+
+                &:focus-visible {
+                    outline: none;
+                }
             }
 
-            .volume-line {
+            .volume-line:first-child {
                 width: 2px;
-                height: 48px;
-                background-color: rgb(255, 255, 255);
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                cursor: pointer;
-                transform-origin: center bottom;
-                border-radius: 4px;
+                background: #fff;
             }
         }
     }

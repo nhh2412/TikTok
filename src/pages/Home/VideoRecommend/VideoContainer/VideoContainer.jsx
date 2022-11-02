@@ -5,6 +5,8 @@ import classNames from 'classnames/bind'
 import styles from './VideoContainer.module.scss'
 import Tippy from '@tippyjs/react/headless'
 import Share from '~/components/popper/Share'
+import ReactSlider from 'react-slider'
+
 const cx = classNames.bind(styles)
 
 function VideoItem({ data, setVolume, volume }) {
@@ -12,8 +14,6 @@ function VideoItem({ data, setVolume, volume }) {
     const [isShowAllShare, setIsShowAllShare] = useState(false)
 
     const videoRef = useRef()
-    const circleRef = useRef()
-    const lineRef = useRef()
 
     const options = {
         root: null,
@@ -57,32 +57,16 @@ function VideoItem({ data, setVolume, volume }) {
     // change volume
     useEffect(() => {
         videoRef.current.volume = volume
-        lineRef.current.style.transform = `scaleY(${volume})`
-        circleRef.current.style.transform = `translateY(-${volume * 36}px)`
     }, [volume])
 
     return (
         <div className={cx('video-container')}>
             <div className={cx('video-wrapper')}>
-                <video
-                    src={data.file_url}
-                    loop
-                    preload="true"
-                    ref={videoRef}
-                    onClick={() => {
-                        setVolume(0)
-                    }}
-                ></video>
+                <video src={data.file_url} loop preload="true" ref={videoRef}></video>
                 <div className={cx('video-action')}>
                     <button className={cx('playing')} onClick={onVideoClick}>
                         {!playing ? <icons.play /> : <icons.pause />}
                     </button>
-                    <div className={cx('volume-controller-container')}>
-                        <div className={cx('volume-bar')}>
-                            <div ref={circleRef} className={cx('volume-circle')}></div>
-                            <div ref={lineRef} className={cx('volume-line')}></div>
-                        </div>
-                    </div>
                     <button
                         className={cx('loud-speaker', volume === 0 && 'muted')}
                         onClick={() => {
@@ -99,6 +83,19 @@ function VideoItem({ data, setVolume, volume }) {
                     >
                         {volume !== 0 ? <icons.loudspeaker /> : <icons.loudspeakerMute />}
                     </button>
+                    <div className={cx('volume-controller-container')}>
+                        <ReactSlider
+                            orientation={'vertical'}
+                            className={cx('volume-bar')}
+                            thumbClassName={cx('volume-circle')}
+                            trackClassName={cx('volume-line')}
+                            value={volume * 100}
+                            invert
+                            onChange={(a) => {
+                                setVolume(a / 100)
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
             <div className={cx('action')}>
