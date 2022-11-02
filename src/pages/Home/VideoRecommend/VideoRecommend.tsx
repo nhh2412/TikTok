@@ -15,10 +15,14 @@ function VideoRecommend({
     data,
     setVolume,
     volume,
+    prevVolume,
+    setPrevVolume,
 }: {
     data: Video
     volume: number
     setVolume: (arg0: number) => void
+    prevVolume: number
+    setPrevVolume: (arg0: number) => void
 }) {
     return (
         <div className={cx('container')}>
@@ -58,7 +62,13 @@ function VideoRecommend({
                         </Link>
                     </h4>
                 </div>
-                <VideoItem data={data} volume={volume} setVolume={setVolume} />
+                <VideoItem
+                    data={data}
+                    volume={volume}
+                    setVolume={setVolume}
+                    prevVolume={prevVolume}
+                    setPrevVolume={setPrevVolume}
+                />
             </div>
             <button className={cx('follow-btn')} onClick={() => true}>
                 Follow

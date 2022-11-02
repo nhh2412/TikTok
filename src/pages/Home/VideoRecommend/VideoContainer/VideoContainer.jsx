@@ -9,11 +9,22 @@ import ReactSlider from 'react-slider'
 
 const cx = classNames.bind(styles)
 
-function VideoItem({ data, setVolume, volume }) {
+function VideoItem({ data, setVolume, volume, prevVolume, setPrevVolume }) {
     const [playing, setPlaying] = useState(false)
     const [isShowAllShare, setIsShowAllShare] = useState(false)
 
+    let type
+    const ratioVideo = data.meta.video.resolution_x / data.meta.video.resolution_y
+
     const videoRef = useRef()
+    console.log(ratioVideo)
+    if (ratioVideo < 0.6) {
+        type = 'vertical'
+    } else if (ratioVideo > 1.25) {
+        type = 'horizontal'
+    } else {
+        type = 'equal'
+    }
 
     const options = {
         root: null,
@@ -61,7 +72,7 @@ function VideoItem({ data, setVolume, volume }) {
 
     return (
         <div className={cx('video-container')}>
-            <div className={cx('video-wrapper')}>
+            <div className={cx('video-wrapper', type)}>
                 <video src={data.file_url} loop preload="true" ref={videoRef}></video>
                 <div className={cx('video-action')}>
                     <button className={cx('playing')} onClick={onVideoClick}>
@@ -73,10 +84,8 @@ function VideoItem({ data, setVolume, volume }) {
                             setVolume((prev) => {
                                 if (volume > 0) {
                                     return 0
-                                } else if (prev === 0) {
-                                    return 0.8
-                                } else {
-                                    return prev
+                                } else if (prev === 0 && prevVolume > 0) {
+                                    return prevVolume
                                 }
                             })
                         }}
@@ -93,6 +102,7 @@ function VideoItem({ data, setVolume, volume }) {
                             invert
                             onChange={(a) => {
                                 setVolume(a / 100)
+                                if (a === 0) setPrevVolume(0.8)
                             }}
                         />
                     </div>

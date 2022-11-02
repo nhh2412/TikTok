@@ -4,10 +4,6 @@
 
     .video-wrapper {
         position: relative;
-        height: 48%;
-        width: 48%;
-        min-width: 292px;
-        min-height: 292px;
         margin-right: 20px;
 
         &:hover .video-action {
@@ -18,11 +14,21 @@
         }
         video {
             border-radius: 8px;
-            height: 47%;
-            width: 47%;
-            min-width: 292px;
-            min-height: 292px;
+            height: 100%;
+            width: 100%;
         }
+    }
+
+    .vertical {
+        width: 50%;
+    }
+
+    .equal {
+        width: 60%;
+    }
+
+    .horizontal {
+        width: 70%;
     }
 
     .icon {
@@ -131,6 +137,14 @@
                 width: 2px;
                 background: #fff;
             }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .video-container {
+        .video-wrapper {
+            flex: 1;
         }
     }
 }

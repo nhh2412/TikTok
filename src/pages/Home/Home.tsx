@@ -11,6 +11,7 @@ const cx = classnames.bind(styles)
 function Home() {
     document.title = 'TikTok - Make Your Day'
     const [volume, setVolume] = useState<number>(1)
+    const [prevVolume, setPrevVolume] = useState<number>(volume)
     const [videoList, setVideoList] = useState<any>([])
     const [loading, setLoading] = useState<boolean>(false)
     const [page, setPage] = useState<number>(1)
@@ -28,6 +29,10 @@ function Home() {
         setVideoList(res.data.data)
         setTotalPages(res.data.meta.pagination.total_pages)
     }
+
+    useEffect(() => {
+        if (volume > 0) setPrevVolume(volume)
+    }, [volume])
 
     useEffect(() => {
         page !== 1 && !loading && page <= totalPages && getVideoForYou()
@@ -52,7 +57,14 @@ function Home() {
     return videoList.length > 0 ? (
         <main className={cx('main')}>
             {videoList.map((data: Video, index: number) => (
-                <VideoRecommend key={data.id} data={data} volume={volume} setVolume={setVolume} />
+                <VideoRecommend
+                    key={data.id}
+                    data={data}
+                    volume={volume}
+                    setVolume={setVolume}
+                    prevVolume={prevVolume}
+                    setPrevVolume={setPrevVolume}
+                />
             ))}
             <div id="loader"></div>
         </main>
