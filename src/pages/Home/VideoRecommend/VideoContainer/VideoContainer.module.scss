@@ -23,14 +23,20 @@
 
     .vertical {
         width: 50%;
+        min-width: 290px;
+        min-height: 516px;
     }
 
     .equal {
         width: 60%;
+        min-width: 387px;
+        min-height: 516px;
     }
 
     .horizontal {
-        width: 70%;
+        width: 83%;
+        min-height: 290px;
+        min-width: 516px;
     }
 
     .icon {
