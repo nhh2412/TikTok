@@ -15,26 +15,25 @@
         }
         video {
             border-radius: 8px;
-            height: 100%;
             cursor: pointer;
-            width: 100%;
+            object-fit: cover;
         }
     }
 
-    .vertical {
-        width: 50%;
+    .vertical video {
+        width: 60%;
         min-width: 290px;
         min-height: 516px;
     }
 
-    .equal {
-        width: 60%;
-        min-width: 387px;
+    .equal video {
+        width: 70%;
+        min-width: 516px;
         min-height: 516px;
     }
 
-    .horizontal {
-        width: 83%;
+    .horizontal video {
+        width: 80%;
         min-height: 290px;
         min-width: 516px;
     }
