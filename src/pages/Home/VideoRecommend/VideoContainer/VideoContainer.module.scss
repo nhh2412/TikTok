@@ -22,29 +22,26 @@
     }
 
     .vertical {
-        width: 60%;
-        min-width: 290px;
-        min-height: 516px;
+        width: 290px;
+        height: 516px;
         video {
-            min-height: 516px;
+            height: 516px;
         }
     }
 
     .equal {
-        width: 70%;
-        min-width: 516px;
-        min-height: 516px;
+        width: 516px;
+        height: 516px;
         video {
-            min-height: 516px;
+            height: 516px;
         }
     }
 
     .horizontal {
-        width: 80%;
-        min-height: 290px;
-        min-width: 516px;
+        height: 290px;
+        width: 516px;
         video {
-            min-height: 290px;
+            height: 290px;
         }
     }
 

@@ -73,7 +73,6 @@ function VideoItem({ data, setVolume, volume, prevVolume, setPrevVolume }) {
                 setPlaying(false)
             }
         }
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isVisible])
 
