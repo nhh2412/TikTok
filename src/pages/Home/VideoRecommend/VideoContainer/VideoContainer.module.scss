@@ -17,25 +17,35 @@
             border-radius: 8px;
             cursor: pointer;
             object-fit: cover;
+            width: 100%;
         }
     }
 
-    .vertical video {
+    .vertical {
         width: 60%;
         min-width: 290px;
         min-height: 516px;
+        video {
+            min-height: 516px;
+        }
     }
 
-    .equal video {
+    .equal {
         width: 70%;
         min-width: 516px;
         min-height: 516px;
+        video {
+            min-height: 516px;
+        }
     }
 
-    .horizontal video {
+    .horizontal {
         width: 80%;
         min-height: 290px;
         min-width: 516px;
+        video {
+            min-height: 290px;
+        }
     }
 
     .icon {
