@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom'
 import VideoItem from './VideoContainer'
 import MiniProfile from '~/components/popper/MiniProfile'
 
+import { parseHashtag } from '~/functions'
+
 const cx = classNames.bind(styles)
 
 function VideoRecommend({
@@ -52,7 +54,12 @@ function VideoRecommend({
                         </Tippy>
                     </div>
 
-                    <div className={cx('description')}>{data.description}</div>
+                    <div className={cx('description')}>
+                        {parseHashtag(data.description).des}
+                        {parseHashtag(data.description).hashtags?.map((e, i) => (
+                            <strong key={i}>{e} </strong>
+                        ))}
+                    </div>
                     <h4 className={cx('music')}>
                         <Link to={`/@${data.user.nickname}`}>
                             <span className={cx('music-icon')}>
