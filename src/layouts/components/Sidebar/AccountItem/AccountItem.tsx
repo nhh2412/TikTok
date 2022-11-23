@@ -11,12 +11,7 @@ import MiniProfile from '~/components/popper/MiniProfile'
 
 const cx = classNames.bind(styles)
 
-const AccountItem: FC<{ data: User; index: number; isShowAll: boolean; isMiniProfile: boolean | boolean }> = ({
-    data,
-    index,
-    isShowAll,
-    isMiniProfile,
-}) => {
+const AccountItem: FC<{ data: User }> = ({ data }) => {
     return (
         <div>
             <Tippy
@@ -24,9 +19,9 @@ const AccountItem: FC<{ data: User; index: number; isShowAll: boolean; isMiniPro
                 placement="bottom-start"
                 offset={[0, 0]}
                 interactive
-                render={() => isMiniProfile && MiniProfile.Sidebar(data)}
+                render={() => MiniProfile.Sidebar(data)}
             >
-                <Link to={`/@${data.nickname}`} className={cx('wrapper', index > 4 && !isShowAll && 'hide')}>
+                <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
                     <div className={cx('avatar')}>
                         {isImage(data.avatar) ? (
                             <img src={data.avatar} alt={data.nickname} width={32} height={32} />

@@ -40,8 +40,8 @@ function VideoItem({ data, setVolume, volume, prevVolume, setPrevVolume }) {
 
     const options = {
         root: null,
-        rootMargin: '-200px 0px',
-        threshold: 0.3,
+        rootMargin: '0px',
+        threshold: 0.8,
     }
     const isVisible = useElementOnScreen(options, videoRef)
 

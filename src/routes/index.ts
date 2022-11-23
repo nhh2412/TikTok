@@ -1,7 +1,7 @@
 import Home from '~/pages/Home'
 import Following from '~/pages/Following'
 import Live from '~/pages/Live'
-// import Profile from '~/pages/Profile'
+import Profile from '~/pages/Profile'
 
 import config from '~/config'
 import { FC, ReactElement } from 'react'
@@ -18,6 +18,7 @@ const publicRoutes: Routes[] = [
     { path: config.routes.home, Component: Home },
     { path: config.routes.following, Component: Following },
     { path: config.routes.live, Component: Live, layout: FullScreenLayout },
+    { path: config.routes.profile, Component: Profile, layout: FullScreenLayout },
 ]
 
 // const privateRoutes = []

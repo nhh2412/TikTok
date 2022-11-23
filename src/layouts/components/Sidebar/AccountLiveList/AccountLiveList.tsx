@@ -5,7 +5,7 @@ import styles from './AccountLiveList.module.scss'
 import axios from 'axios'
 const cx = classNames.bind(styles)
 
-function AccountList({ isMiniProfile }: { isMiniProfile: boolean }) {
+function AccountList() {
     const [suggestAccounts, setSuggestAccounts] = useState([])
     const [showAllSuggestAccounts, setShowAllSuggestAccounts] = useState(false)
 
@@ -23,15 +23,14 @@ function AccountList({ isMiniProfile }: { isMiniProfile: boolean }) {
                 <p className={cx('title')}>Các chủ phòng được đề xuất</p>
                 {suggestAccounts[0] ? (
                     <>
-                        {suggestAccounts.map((data, i) => (
-                            <AccountItem
-                                data={data}
-                                index={i}
-                                key={i}
-                                isShowAll={showAllSuggestAccounts}
-                                isMiniProfile={isMiniProfile}
-                            />
-                        ))}
+                        {suggestAccounts.map((data, i) => {
+                            if (i > 4 && !showAllSuggestAccounts) {
+                                // eslint-disable-next-line array-callback-return
+                                return
+                            } else {
+                                return <AccountItem data={data} key={i} />
+                            }
+                        })}
                         <div
                             className={cx('show-all')}
                             onClick={() => setShowAllSuggestAccounts(!showAllSuggestAccounts)}

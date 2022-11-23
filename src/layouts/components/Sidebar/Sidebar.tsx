@@ -11,25 +11,12 @@ import AccountList from './AccountList/AccountList'
 import Discover from './Discover'
 import Footer from './Footer'
 import AccountLiveList from './AccountLiveList'
-import { useEffect, useState } from 'react'
 import React from 'react'
 
 const cx = classNames.bind(styles)
 
 function Sidebar({ path }: { path: string }) {
     const sidebar = React.useRef<HTMLDivElement>(null)
-    const [isMiniProfile, setIsMiniProfile] = useState<boolean>(true)
-
-    useEffect(() => {
-        window.addEventListener('resize', () => {
-            if (sidebar.current && sidebar.current?.clientWidth < 250) {
-                setIsMiniProfile(false)
-            } else setIsMiniProfile(true)
-        })
-        if (sidebar.current && sidebar.current?.clientWidth < 250) {
-            setIsMiniProfile(false)
-        } else setIsMiniProfile(true)
-    }, [])
 
     return (
         <aside className={cx('sidebar', (path === '/live' || path === '/@:nickname') && 's-sidebar')} ref={sidebar}>
@@ -45,12 +32,12 @@ function Sidebar({ path }: { path: string }) {
                 </div>
                 {path !== '/following' && path !== '/live' && (
                     <div className={cx('account-list', 'separate')}>
-                        <AccountList isMiniProfile={isMiniProfile} />
+                        <AccountList />
                     </div>
                 )}
                 {path === '/live' && (
                     <div className={cx('account-list', 'separate')}>
-                        <AccountLiveList isMiniProfile={isMiniProfile} />
+                        <AccountLiveList />
                     </div>
                 )}
                 {path !== '/live' && (

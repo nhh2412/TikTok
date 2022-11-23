@@ -138,3 +138,13 @@ body {
         left: 0;
     }
 }
+
+.s-sidebar {
+    width: 240px;
+    .simplebar-content {
+        width: 240px;
+    }
+    .simplebar-track {
+        right: 116px;
+    }
+}
