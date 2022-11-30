@@ -61,7 +61,7 @@ function VideoRecommend({
                         ))}
                     </div>
                     <h4 className={cx('music')}>
-                        <Link to={`/@${data.user.nickname}`}>
+                        <Link to={''}>
                             <span className={cx('music-icon')}>
                                 <icons.musicNote />
                             </span>

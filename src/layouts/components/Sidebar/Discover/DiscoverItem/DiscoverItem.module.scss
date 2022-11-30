@@ -10,6 +10,10 @@
     margin-right: 8px;
     max-width: 100%;
 
+    svg {
+        min-width: 16px;
+    }
+
     &:hover {
         background: rgba(22, 24, 35, 0.03);
     }

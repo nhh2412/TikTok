@@ -7,7 +7,7 @@ const cx = classNames.bind(styles)
 const DiscoverItem: FC<{ icon: ReactNode; title: string }> = ({ icon, title }) => {
     return (
         <button className={cx('discover-item')}>
-            <span>{icon}</span>
+            {icon}
             <p>{title}</p>
         </button>
     )

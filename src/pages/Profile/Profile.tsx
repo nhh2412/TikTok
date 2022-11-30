@@ -24,7 +24,9 @@ function Profile() {
             <main className={cx('main')}>
                 <div className={cx('info')}>
                     <div className={cx('header')}>
-                        <div className={cx('avatar')}></div>
+                        <div className={cx('avatar')}>
+                            <img src={dataUser.avatar} alt={dataUser.nickname} width={116} height={116} />
+                        </div>
                         <div className={cx('title-container')}>
                             <h2>
                                 {dataUser.nickname} {dataUser.tick && icons.check}
